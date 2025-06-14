@@ -6,18 +6,19 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import { Box } from '@mui/material';
 
 const theme = createTheme({
   palette: {
-    primary: { main: '#64ffda' }, // --green
-    secondary: { main: '#ccd6f6' }, // --lightest-slate
+    primary: { main: '#64ffda' },
+    secondary: { main: '#ccd6f6' },
     text: {
-      primary: '#8892b0', // --slate
-      secondary: '#a8b2d1', // --light-slate
+      primary: '#8892b0',
+      secondary: '#a8b2d1',
     },
     background: {
-      default: '#0a192f', // --dark-navy
-      paper: 'rgba(10, 25, 47, 0.85)', // Navbar arka planı
+      default: '#0a192f',
+      paper: 'rgba(10, 25, 47, 0.85)',
     },
   },
   typography: {
@@ -33,13 +34,35 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-      <Footer />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+          width: '100%',
+          maxWidth: '100%',
+          overflowX: 'hidden', // Yatay taşmayı engelle
+          boxSizing: 'border-box',
+        }}
+      >
+        <Navbar />
+        <Box
+          component="main"
+          sx={{
+            flex: 1,
+            width: '100%',
+            maxWidth: '100%',
+            overflowX: 'hidden',
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Box>
+        <Footer />
+      </Box>
     </ThemeProvider>
   );
 }

@@ -27,14 +27,16 @@ const Navbar = () => {
     setIsOpen(open);
   };
 
+  // Linkleri güncelleyelim ve sıralayalım
   const navLinks = [
     { to: "/about", label: "01. About" },
     { to: "/contact", label: "02. Contact" },
+    { to: "/deep-dives", label: "03. Deep Dives" }, // YENİ LİNK
   ];
 
   const drawerContent = (
     <Box
-      sx={{ width: 250, p: 2 }}
+      sx={{ width: 250, p: 2, bgcolor: "background.default" }} // Arka plan rengini tema ile uyumlu hale getirdim
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -45,9 +47,10 @@ const Navbar = () => {
             <ListItemText
               primary={link.label}
               primaryTypographyProps={{
-                color: "secondary",
+                color: "secondary.main", // Drawer içindeki link rengini ana linklerle aynı yaptım
                 fontFamily: "monospace",
-                fontSize: "clamp(12px, 2vw, 14px)",
+                fontSize: "clamp(14px, 2.5vw, 16px)", // Biraz daha okunaklı boyut
+                "&:hover": { color: "primary.main" },
               }}
             />
           </ListItem>
@@ -60,17 +63,19 @@ const Navbar = () => {
     <AppBar
       position="sticky"
       sx={{
-        bgcolor: "background.paper",
+        bgcolor: "background.paper", // Temanızdaki paper rengi
         backdropFilter: "blur(10px)",
-        boxShadow: "none",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+        boxShadow:
+          "0px 2px 4px -1px rgba(0,0,0,0.05), 0px 4px 5px 0px rgba(0,0,0,0.05), 0px 1px 10px 0px rgba(0,0,0,0.05)", // Daha yumuşak bir gölge
+        borderBottom: "1px solid rgba(100, 255, 218, 0.1)", // primary.main rengine hafif referans
       }}
     >
       <Toolbar
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          px: { xs: 1, sm: 2 },
+          px: { xs: 1, sm: 3, md: 4 }, // Padding'i biraz artırdım
+          minHeight: { xs: 56, sm: 64 }, // Standart AppBar yükseklikleri
         }}
       >
         {/* Logo */}
@@ -82,19 +87,22 @@ const Navbar = () => {
             color: "primary.main",
             textDecoration: "none",
             fontWeight: "bold",
-            fontSize: "clamp(16px, 2vw, 20px)",
+            fontSize: "clamp(18px, 2.5vw, 22px)", // Logoyu biraz büyüttüm
+            fontFamily: "monospace", // Diğer linklerle uyumlu
+            "&:hover": {
+              textShadow: "0 0 5px rgba(100, 255, 218, 0.7)", // Hafif bir parlama efekti
+            },
           }}
         >
           Logic & Loop
         </Typography>
 
-        {/* Centered Navigation Links */}
+        {/* Centered Navigation Links for Desktop */}
         <Box
           sx={{
             display: { xs: "none", sm: "flex" },
-            flexGrow: 1,
-            justifyContent: "center",
-            gap: 2,
+            alignItems: "center", // Dikeyde ortalamak için
+            gap: { sm: 2, md: 3 }, // Linkler arası boşluk
           }}
         >
           {navLinks.map((link) => (
@@ -105,9 +113,14 @@ const Navbar = () => {
               sx={{
                 color: "secondary.main",
                 fontFamily: "monospace",
-                fontSize: "clamp(12px, 2vw, 14px)",
+                fontSize: "clamp(13px, 1.5vw, 15px)", // Boyutu hafif artırdım
                 textTransform: "none",
-                "&:hover": { color: "primary.main" },
+                py: 1,
+                px: 1.5,
+                "&:hover": {
+                  color: "primary.main",
+                  backgroundColor: "rgba(100, 255, 218, 0.05)", // Hover'da hafif arka plan
+                },
               }}
             >
               {link.label}
@@ -118,8 +131,10 @@ const Navbar = () => {
         {/* Menu Icon for Mobile */}
         <IconButton
           color="primary"
-          sx={{ display: { xs: "flex", sm: "none" } }}
+          aria-label="open drawer"
+          edge="end"
           onClick={toggleDrawer(true)}
+          sx={{ display: { xs: "flex", sm: "none" } }}
         >
           <MenuIcon />
         </IconButton>

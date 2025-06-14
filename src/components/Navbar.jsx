@@ -13,8 +13,6 @@ import {
   Box,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CV from "../assets/suleyman-unver-cv.pdf";
-import CoverLetter from "../assets/mycoverletter.pdf";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,30 +52,6 @@ const Navbar = () => {
             />
           </ListItem>
         ))}
-        <ListItem>
-          <Button
-            href={CV}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-            color="primary"
-            sx={{ width: "100%", mb: 1 }}
-          >
-            Resume Download
-          </Button>
-        </ListItem>
-        <ListItem>
-          <Button
-            href={CoverLetter}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-            color="primary"
-            sx={{ width: "100%" }}
-          >
-            Cover Letter Download
-          </Button>
-        </ListItem>
       </List>
     </Box>
   );
@@ -92,7 +66,14 @@ const Navbar = () => {
         borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 1, sm: 2 } }}>
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          px: { xs: 1, sm: 2 },
+        }}
+      >
+        {/* Logo */}
         <Typography
           variant="h6"
           component={Link}
@@ -104,9 +85,18 @@ const Navbar = () => {
             fontSize: "clamp(16px, 2vw, 20px)",
           }}
         >
-    Logic & Loop
+          Logic & Loop
         </Typography>
-        <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+
+        {/* Centered Navigation Links */}
+        <Box
+          sx={{
+            display: { xs: "none", sm: "flex" },
+            flexGrow: 1,
+            justifyContent: "center",
+            gap: 2,
+          }}
+        >
           {navLinks.map((link) => (
             <Button
               key={link.label}
@@ -123,27 +113,9 @@ const Navbar = () => {
               {link.label}
             </Button>
           ))}
-          {/* <Button
-            href={CV}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-            color="primary"
-            sx={{ fontSize: "clamp(10px, 2vw, 12px)" }}
-          >
-            Resume Download
-          </Button> */}
-          {/* <Button
-            href={CoverLetter}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-            color="primary"
-            sx={{ fontSize: "clamp(10px, 2vw, 12px)" }}
-          >
-            Cover Letter Download
-          </Button> */}
         </Box>
+
+        {/* Menu Icon for Mobile */}
         <IconButton
           color="primary"
           sx={{ display: { xs: "flex", sm: "none" } }}
@@ -151,6 +123,8 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
+
+        {/* Drawer for Mobile */}
         <Drawer anchor="right" open={isOpen} onClose={toggleDrawer(false)}>
           {drawerContent}
         </Drawer>

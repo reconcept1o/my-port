@@ -37,7 +37,7 @@ const HomePage = () => {
             mb: 1,
           }}
         >
-          Süleyman Ünver.
+          Suleyman Unver.
         </Typography>
         <Typography
           variant="h3"

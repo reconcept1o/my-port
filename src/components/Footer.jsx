@@ -16,7 +16,9 @@ const Footer = () => {
         width: '100%',
         maxWidth: '100%', // Genişlik ekranı aşmasın
         boxSizing: 'border-box', // Padding genişliğe dahil olsun
-        bgcolor: '#ffffff', // Arka plan beyaz (diğer sayfalarla uyumlu)
+        bgcolor: 'background.paper', // Navbar ile aynı arka plan: rgba(10, 25, 47, 0.85)
+        backdropFilter: 'blur(10px)', // Navbar ile uyumlu bulanıklık efekti
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)', // Navbar'daki sınır efekti
       }}
     >
       <Box sx={{ display: 'flex', gap: 2, mb: 1 }}>
@@ -25,29 +27,29 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           sx={{
-            color: '#000000', // Siyah ikonlar
-            '&:hover': { color: '#64ffda' }, // Hover'da tema rengi
+            color: '#ffffff', // Beyaz ikonlar
+            '&:hover': { color: '#64ffda' }, // Hover'da tema rengi (yeşil)
           }}
         >
-          <GitHubIcon sx={{ fontSize: 'clamp(0.9rem, 3vw, 1.25rem)' }} />
+          <GitHubIcon sx={{ fontSize: 'clamp(1.2rem, 4vw, 1.75rem)' }} /> {/* İkon boyutu büyütüldü */}
         </IconButton>
         <IconButton
           href="https://www.linkedin.com/in/s%C3%BCleyman-%C3%BCnver-9b3950245/"
           target="_blank"
           rel="noopener noreferrer"
           sx={{
-            color: '#000000', // Siyah ikonlar
-            '&:hover': { color: '#64ffda' }, // Hover'da tema rengi
+            color: '#ffffff', // Beyaz ikonlar
+            '&:hover': { color: '#64ffda' }, // Hover'da tema rengi (yeşil)
           }}
         >
-          <LinkedInIcon sx={{ fontSize: 'clamp(0.9rem, 3vw, 1.25rem)' }} />
+          <LinkedInIcon sx={{ fontSize: 'clamp(1.2rem, 4vw, 1.75rem)' }} /> {/* İkon boyutu büyütüldü */}
         </IconButton>
       </Box>
       <Typography
         sx={{
           fontFamily: 'monospace',
           fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
-          color: '#000000', // Siyah yazı
+          color: '#ffffff', // Beyaz yazı (koyu arka planda okunabilirlik için)
           fontWeight: 700, // Kalın font
           mb: 0.5,
         }}
@@ -58,7 +60,7 @@ const Footer = () => {
         sx={{
           fontFamily: 'monospace',
           fontSize: 'clamp(0.625rem, 1.5vw, 0.75rem)',
-          color: '#000000', // Siyah yazı
+          color: '#ffffff', // Beyaz yazı
           fontWeight: 700, // Kalın font
         }}
       >
@@ -69,7 +71,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           sx={{
-            color: '#64ffda', // Tema rengi
+            color: '#64ffda', // Tema rengi (yeşil)
             textDecoration: 'none',
             '&:hover': { textDecoration: 'underline' },
             fontSize: 'inherit',

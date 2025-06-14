@@ -123,7 +123,7 @@ const Navbar = () => {
               {link.label}
             </Button>
           ))}
-          <Button
+          {/* <Button
             href={CV}
             target="_blank"
             rel="noopener noreferrer"
@@ -132,7 +132,7 @@ const Navbar = () => {
             sx={{ fontSize: "clamp(10px, 2vw, 12px)" }}
           >
             Resume Download
-          </Button>
+          </Button> */}
           {/* <Button
             href={CoverLetter}
             target="_blank"

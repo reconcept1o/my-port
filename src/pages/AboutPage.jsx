@@ -62,33 +62,33 @@ const AboutPage = () => {
       <Container
         sx={{
           py: { xs: 2, sm: 4 },
-          textAlign: 'center',
-          bgcolor: '#ffffff', // Arka plan beyaz
+          textAlign: "center",
+          bgcolor: "#0A192F", // Arka plan beyaz
         }}
       >
         {/* About Me başlığı ve resim yan yana */}
         <Stack
-          direction={{ xs: 'column', sm: 'row' }}
+          direction={{ xs: "column", sm: "row" }}
           spacing={2}
           sx={{
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
             mb: 3,
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              color: '#000000', // Siyah yazı
+              color: "white", // Siyah yazı
               fontWeight: 700, // Kalın font
-              position: 'relative',
-              '&:after': {
+              position: "relative",
+              "&:after": {
                 content: '""',
-                display: 'block',
-                width: { xs: '80%', sm: 'clamp(100px, 20vw, 200px)' },
-                height: '1px',
-                bgcolor: '#000000', // Çizgi siyah
-                mx: 'auto',
+                display: "block",
+                width: { xs: "80%", sm: "clamp(100px, 20vw, 200px)" },
+                height: "1px",
+                bgcolor: "white", // Çizgi siyah
+                mx: "auto",
                 mt: 1,
               },
             }}
@@ -100,11 +100,11 @@ const AboutPage = () => {
             src={profilePhoto}
             alt="Süleyman Ünver"
             sx={{
-              width: { xs: '100px', sm: '120px' },
-              height: { xs: '100px', sm: '120px' },
-              borderRadius: '50%', // Yuvarlak resim
-              boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.7)',
-              objectFit: 'cover',
+              width: { xs: "100px", sm: "120px" },
+              height: { xs: "100px", sm: "120px" },
+              borderRadius: "50%", // Yuvarlak resim
+              boxShadow: "0 10px 30px -15px rgba(0, 0, 0, 0.7)",
+              objectFit: "cover",
             }}
           />
         </Stack>
@@ -113,59 +113,59 @@ const AboutPage = () => {
         <Typography
           sx={{
             mb: 2,
-            color: '#000000', // Siyah yazı
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
-            maxWidth: '90%',
-            mx: 'auto',
+            maxWidth: "90%",
+            mx: "auto",
           }}
         >
-          Hello! I'm Süleyman Ünver, a passionate Full Stack Developer with a love
-          for crafting innovative web solutions. My journey began with frontend
-          development using React, evolving into full-stack expertise with the MERN
-          stack and PostgreSQL. At Sanatkardan.com, I lead end-to-end projects,
-          from architecting scalable systems to integrating cutting-edge
-          technologies like Large Language Models (LLMs) for advanced warehouse
-          management solutions.
+          Hello! I'm Süleyman Ünver, a passionate Full Stack Developer with a
+          love for crafting innovative web solutions. My journey began with
+          frontend development using React, evolving into full-stack expertise
+          with the MERN stack and PostgreSQL. At Sanatkardan.com, I lead
+          end-to-end projects, from architecting scalable systems to integrating
+          cutting-edge technologies like Large Language Models (LLMs) for
+          advanced warehouse management solutions.
         </Typography>
         <Typography
           sx={{
             mb: 2,
-            color: '#000000', // Siyah yazı
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
-            maxWidth: '90%',
-            mx: 'auto',
+            maxWidth: "90%",
+            mx: "auto",
           }}
         >
           My mission is to create seamless, high-performance applications that
-          solve real-world problems. I thrive on continuous learning, staying ahead
-          of industry trends, and contributing to the tech community through
-          knowledge sharing. Whether it's optimizing APIs, designing intuitive UIs,
-          or exploring AI-driven innovations, I'm driven to make a global impact in
-          software development.
+          solve real-world problems. I thrive on continuous learning, staying
+          ahead of industry trends, and contributing to the tech community
+          through knowledge sharing. Whether it's optimizing APIs, designing
+          intuitive UIs, or exploring AI-driven innovations, I'm driven to make
+          a global impact in software development.
         </Typography>
         <List
           sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
             gap: 1,
-            justifyItems: { xs: 'center', sm: 'center' },
-            maxWidth: '90%',
-            mx: 'auto',
+            justifyItems: { xs: "center", sm: "center" },
+            maxWidth: "90%",
+            mx: "auto",
           }}
         >
           {skills.map((skill) => (
             <ListItem
               key={skill}
               sx={{
-                fontFamily: 'monospace',
-                fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
-                color: '#000000', // Siyah yazı
+                fontFamily: "monospace",
+                fontSize: "clamp(0.75rem, 2vw, 0.875rem)",
+                color: "white", // Siyah yazı
                 fontWeight: 700, // Kalın font
               }}
             >
               <Box
                 component="span"
-                sx={{ color: '#000000', mr: 1, fontWeight: 700 }}
+                sx={{ color: "white", mr: 1, fontWeight: 700 }}
               >
                 ▹
               </Box>
@@ -180,17 +180,17 @@ const AboutPage = () => {
           sx={{
             mt: 4,
             mb: 3,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#000000', // Siyah yazı
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
-            '&:after': {
+            "&:after": {
               content: '""',
-              display: 'block',
-              width: { xs: '80%', sm: 'clamp(100px, 20vw, 200px)' },
-              height: '1px',
-              bgcolor: '#000000', // Çizgi siyah
+              display: "block",
+              width: { xs: "80%", sm: "clamp(100px, 20vw, 200px)" },
+              height: "1px",
+              bgcolor: "white", // Çizgi siyah
               ml: { xs: 0, sm: 2 },
               mt: { xs: 1, sm: 0 },
             },
@@ -199,27 +199,33 @@ const AboutPage = () => {
           Experience
         </Typography>
         {experiences.map((exp) => (
-          <Box key={exp.company || exp.role} sx={{ mb: 3, textAlign: 'center' }}>
+          <Box
+            key={exp.company || exp.role}
+            sx={{ mb: 3, textAlign: "center" }}
+          >
             <Typography
               variant="h6"
               sx={{
                 mb: 0.5,
-                color: '#000000', // Siyah yazı
+                color: "white", // Siyah yazı
                 fontWeight: 700, // Kalın font
               }}
             >
-              {exp.role}{' '}
+              {exp.role}{" "}
               {exp.company && (
-                <Box component="span" sx={{ color: '#000000', fontWeight: 700 }}>
+                <Box
+                  component="span"
+                  sx={{ color: "white", fontWeight: 700 }}
+                >
                   @ {exp.company}
                 </Box>
               )}
             </Typography>
             <Typography
               sx={{
-                fontFamily: 'monospace',
-                fontSize: 'clamp(0.625rem, 2vw, 0.75rem)',
-                color: '#000000', // Siyah yazı
+                fontFamily: "monospace",
+                fontSize: "clamp(0.625rem, 2vw, 0.75rem)",
+                color: "white", // Siyah yazı
                 fontWeight: 700, // Kalın font
                 mb: 1,
               }}
@@ -228,9 +234,9 @@ const AboutPage = () => {
             </Typography>
             <Typography
               sx={{
-                maxWidth: '90%',
-                mx: 'auto',
-                color: '#000000', // Siyah yazı
+                maxWidth: "90%",
+                mx: "auto",
+                color: "white", // Siyah yazı
                 fontWeight: 700, // Kalın font
               }}
             >

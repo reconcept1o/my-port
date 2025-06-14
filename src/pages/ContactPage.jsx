@@ -9,22 +9,22 @@ const ContactPage = () => {
     <AnimatedPage>
       <Container
         sx={{
-          minHeight: { xs: '70vh', sm: '80vh' },
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          maxWidth: '700px',
+          minHeight: { xs: "70vh", sm: "80vh" },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          maxWidth: "700px",
           px: { xs: 1, sm: 2 },
-          bgcolor: '#ffffff', // Arka plan beyaz
+          bgcolor: "#0A192F", // Arka plan beyaz
         }}
       >
         <Typography
           variant="h1"
           sx={{
-            color: '#000000', // Siyah yazı
-            fontFamily: 'monospace',
+            color: "white", // Siyah yazı
+            fontFamily: "monospace",
             fontWeight: 700, // Kalın font
             mb: 1,
           }}
@@ -34,7 +34,7 @@ const ContactPage = () => {
         <Typography
           variant="h3"
           sx={{
-            color: '#000000', // Siyah yazı
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
             mb: 2,
           }}
@@ -43,24 +43,24 @@ const ContactPage = () => {
         </Typography>
         <Typography
           sx={{
-            maxWidth: '90%',
+            maxWidth: "90%",
             mb: 3,
-            color: '#000000', // Siyah yazı
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
           }}
         >
-          I'm passionate about turning ideas into reality and always eager to dive
-          into new projects or collaborations. Whether you're envisioning a
-          cutting-edge app, need help solving a technical challenge, or just want
-          to geek out over code and AI, I'm here for it—reach out and let's make
-          something extraordinary!
+          I'm passionate about turning ideas into reality and always eager to
+          dive into new projects or collaborations. Whether you're envisioning a
+          cutting-edge app, need help solving a technical challenge, or just
+          want to geek out over code and AI, I'm here for it—reach out and let's
+          make something extraordinary!
         </Typography>
         <Box
           sx={{
-            display: 'flex',
+            display: "flex",
             gap: { xs: 1, sm: 2 },
             mb: 2,
-            flexDirection: { xs: 'column', sm: 'row' },
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <Button
@@ -69,17 +69,17 @@ const ContactPage = () => {
             color="primary"
             startIcon={<EmailIcon />}
             sx={{
-              fontFamily: 'monospace',
-              fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
+              fontFamily: "monospace",
+              fontSize: "clamp(0.75rem, 2vw, 0.875rem)",
               px: 2,
               py: 1,
-              color: '#000000', // Siyah yazı
-              borderColor: '#000000', // Siyah çerçeve
+              color: "white", // Siyah yazı
+              borderColor: "white", // Siyah çerçeve
               fontWeight: 700, // Kalın font
-              '&:hover': {
-                bgcolor: 'rgba(0, 0, 0, 0.1)', // Hover'da hafif siyah ton
-                transform: 'translateY(-2px)',
-                borderColor: '#000000',
+              "&:hover": {
+                bgcolor: "rgba(0, 0, 0, 0.1)", // Hover'da hafif siyah ton
+                transform: "translateY(-2px)",
+                borderColor: "white",
               },
             }}
           >
@@ -93,17 +93,17 @@ const ContactPage = () => {
             color="primary"
             startIcon={<WhatsAppIcon />}
             sx={{
-              fontFamily: 'monospace',
-              fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
+              fontFamily: "monospace",
+              fontSize: "clamp(0.75rem, 2vw, 0.875rem)",
               px: 2,
               py: 1,
-              color: '#000000', // Siyah yazı
-              borderColor: '#000000', // Siyah çerçeve
+              color: "white", // Siyah yazı
+              borderColor: "white", // Siyah çerçeve
               fontWeight: 700, // Kalın font
-              '&:hover': {
-                bgcolor: 'rgba(0, 0, 0, 0.1)', // Hover'da hafif siyah ton
-                transform: 'translateY(-2px)',
-                borderColor: '#000000',
+              "&:hover": {
+                bgcolor: "rgba(0, 0, 0, 0.1)", // Hover'da hafif siyah ton
+                transform: "translateY(-2px)",
+                borderColor: "white",
               },
             }}
           >
@@ -112,9 +112,9 @@ const ContactPage = () => {
         </Box>
         <Typography
           sx={{
-            fontFamily: 'monospace',
-            fontSize: 'clamp(0.625rem, 2vw, 0.75rem)',
-            color: '#000000', // Siyah yazı
+            fontFamily: "monospace",
+            fontSize: "clamp(0.625rem, 2vw, 0.75rem)",
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
             mb: 0.5,
           }}
@@ -123,9 +123,9 @@ const ContactPage = () => {
         </Typography>
         <Typography
           sx={{
-            fontFamily: 'monospace',
-            fontSize: 'clamp(0.625rem, 2vw, 0.75rem)',
-            color: '#000000', // Siyah yazı
+            fontFamily: "monospace",
+            fontSize: "clamp(0.625rem, 2vw, 0.75rem)",
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
             mb: 0.5,
           }}
@@ -134,9 +134,9 @@ const ContactPage = () => {
         </Typography>
         <Typography
           sx={{
-            fontFamily: 'monospace',
-            fontSize: 'clamp(0.625rem, 2vw, 0.75rem)',
-            color: '#000000', // Siyah yazı
+            fontFamily: "monospace",
+            fontSize: "clamp(0.625rem, 2vw, 0.75rem)",
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
           }}
         >

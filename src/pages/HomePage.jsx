@@ -8,21 +8,21 @@ const HomePage = () => {
     <AnimatedPage>
       <Container
         sx={{
-          minHeight: { xs: '70vh', sm: '80vh' },
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
+          minHeight: { xs: "70vh", sm: "80vh" },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
           px: { xs: 1, sm: 2 },
-          bgcolor: '#ffffff', // Arka plan beyaz
+          bgcolor: "#0A192F", // Arka plan beyaz
         }}
       >
         <Typography
           variant="h1"
           sx={{
-            color: '#000000', // Siyah yazı
-            fontFamily: 'monospace',
+            color: "white", // Siyah yazı
+            fontFamily: "monospace",
             fontWeight: 700, // Kalın font
             mb: 2,
           }}
@@ -32,7 +32,7 @@ const HomePage = () => {
         <Typography
           variant="h2"
           sx={{
-            color: '#000000', // Siyah yazı
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
             mb: 1,
           }}
@@ -42,18 +42,18 @@ const HomePage = () => {
         <Typography
           variant="h3"
           sx={{
-            color: '#000000', // Siyah yazı
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
             mb: 2,
           }}
         >
           <TypeAnimation
             sequence={[
-              'I craft immersive digital experiences.',
+              "I craft immersive digital experiences.",
               2000,
-              'I am a Full Stack Developer.',
+              "I am a Full Stack Developer.",
               2000,
-              'I am passionate about APIs and LLMs.',
+              "I am passionate about APIs and LLMs.",
               2000,
             ]}
             wrapper="span"
@@ -63,18 +63,18 @@ const HomePage = () => {
         </Typography>
         <Typography
           sx={{
-            maxWidth: '90%',
-            fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-            color: '#000000', // Siyah yazı
+            maxWidth: "90%",
+            fontSize: "clamp(0.875rem, 2vw, 1rem)",
+            color: "white", // Siyah yazı
             fontWeight: 700, // Kalın font
           }}
         >
           I'm a seasoned Full Stack Developer specializing in the MERN stack and
-          PostgreSQL, with a knack for building robust, scalable web and mobile applications.
-          My passion lies in creating seamless user experiences, optimizing
-          performance, and leveraging cutting-edge technologies like APIs and
-          Large Language Models to solve complex challenges. Let's build the
-          future of the web together!
+          PostgreSQL, with a knack for building robust, scalable web and mobile
+          applications. My passion lies in creating seamless user experiences,
+          optimizing performance, and leveraging cutting-edge technologies like
+          APIs and Large Language Models to solve complex challenges. Let's
+          build the future of the web together!
         </Typography>
       </Container>
     </AnimatedPage>

@@ -70,7 +70,7 @@ const HomePage = () => {
           }}
         >
           I'm a seasoned Full Stack Developer specializing in the MERN stack and
-          PostgreSQL, with a knack for building robust, scalable web applications.
+          PostgreSQL, with a knack for building robust, scalable web and mobile applications.
           My passion lies in creating seamless user experiences, optimizing
           performance, and leveraging cutting-edge technologies like APIs and
           Large Language Models to solve complex challenges. Let's build the

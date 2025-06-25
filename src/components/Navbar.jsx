@@ -94,7 +94,7 @@ const Navbar = () => {
             },
           }}
         >
-          Logic & Loop
+          ReconceptX
         </Typography>
 
         {/* Centered Navigation Links for Desktop */}

@@ -125,7 +125,7 @@ const HomePage = ({ country = "default" }) => {
             fontSize: "clamp(2.5rem, 6vw, 3.5rem)", // Daha iyi mobil uyumluluk için font boyutunu responsive yapalım
           }}
         >
-          Hi, my name is
+          Hi, My name is
         </Typography>
         <Typography
           variant="h2"

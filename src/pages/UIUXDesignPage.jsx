@@ -95,31 +95,58 @@ const UIUXDesignPage = ({ country = 'default' }) => {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Suleyman Unver" />
         <link rel="canonical" href={canonical} />
-        <link rel="alternate" hreflang="en-us" href="https://www.reconceptx.com/ui-ux/us" />
-        <link rel="alternate" hreflang="en-ca" href="https://www.reconceptx.com/ui-ux/ca" />
-        <link rel="alternate" hreflang="en-au" href="https://www.reconceptx.com/ui-ux/au" />
-        <link rel="alternate" hreflang="x-default" href="https://www.reconceptx.com/ui-ux" />
+        <link
+          rel="alternate"
+          hreflang="en-us"
+          href="https://www.reconceptx.com/ui-ux/us"
+        />
+        <link
+          rel="alternate"
+          hreflang="en-ca"
+          href="https://www.reconceptx.com/ui-ux/ca"
+        />
+        <link
+          rel="alternate"
+          hreflang="en-au"
+          href="https://www.reconceptx.com/ui-ux/au"
+        />
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href="https://www.reconceptx.com/ui-ux"
+        />
         <script type="application/ld+json">
           {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebPage',
+            "@context": "https://schema.org",
+            "@type": "WebPage",
             name: title,
             url: canonical,
             description,
             author: {
-              '@type': 'Person',
-              name: 'Suleyman Unver',
-              sameAs: ['https://www.linkedin.com/in/s%C3%BCleyman-%C3%BCnver', 'https://github.com/reconceptx'],
+              "@type": "Person",
+              name: "Suleyman Unver",
+              sameAs: [
+                "https://www.linkedin.com/in/s%C3%BCleyman-%C3%BCnver",
+                "https://github.com/reconceptx",
+              ],
             },
-            inLanguage: country === 'us' ? 'en-US' : country === 'ca' ? 'en-CA' : country === 'au' ? 'en-AU' : 'en',
+            inLanguage:
+              country === "us"
+                ? "en-US"
+                : country === "ca"
+                ? "en-CA"
+                : country === "au"
+                ? "en-AU"
+                : "en",
             mainEntity: {
-              '@type': 'Article',
-              headline: 'Mastering UI/UX Design Principles with React Bootstrap Examples',
-              datePublished: '2025-06-25',
-              dateModified: '2025-06-25',
-              author: { '@type': 'Person', name: 'Suleyman Unver' },
-              publisher: { '@type': 'Organization', name: 'ReconceptX' },
-              image: canonical + '/assets/images/design-system.jpg',
+              "@type": "Article",
+              headline:
+                "Mastering UI/UX Design Principles with React Bootstrap Examples",
+              datePublished: "2025-06-25",
+              dateModified: "2025-06-25",
+              author: { "@type": "Person", name: "Suleyman Unver" },
+              publisher: { "@type": "Organization", name: "ReconceptX" },
+              image: canonical + "/assets/images/design-system.jpg",
             },
           })}
         </script>
@@ -131,42 +158,78 @@ const UIUXDesignPage = ({ country = 'default' }) => {
           <Col>
             <h1
               style={{
-                color: '#64ffda',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                color: "#64ffda",
+                fontSize: "clamp(2.5rem, 6vw, 4rem)",
                 fontFamily: '"SF Mono", "Fira Code", monospace',
+                paddingTop: "10px",
               }}
             >
               Mastering UI/UX Design Principles
             </h1>
-            <SectionText style={{ maxWidth: '900px', margin: '0 auto' }}>
-              A definitive guide to creating intuitive, accessible, and visually compelling user interfaces using React Bootstrap. Explore advanced UI/UX principles with practical code examples and visual demonstrations.
+            <SectionText style={{ maxWidth: "900px", margin: "0 auto" }}>
+              A definitive guide to creating intuitive, accessible, and visually
+              compelling user interfaces using React Bootstrap. Explore advanced
+              UI/UX principles with practical code examples and visual
+              demonstrations.
             </SectionText>
           </Col>
         </Row>
 
-        <hr style={{ borderColor: '#64ffda', marginBottom: '3rem' }} />
+        <hr style={{ borderColor: "#64ffda", marginBottom: "3rem" }} />
 
         {/* Section 1: User-Centered Design */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>1. User-Centered Design</SectionTitle>
             <SectionText>
-              User-centered design (UCD) places users at the core of the design process, ensuring interfaces meet their needs and expectations. Key components include:
+              User-centered design (UCD) places users at the core of the design
+              process, ensuring interfaces meet their needs and expectations.
+              Key components include:
               <ul>
-                <li><strong>User Research:</strong> Conduct interviews, surveys, and contextual inquiries to gather insights into user behaviors and pain points.</li>
-                <li><strong>Personas:</strong> Develop detailed user profiles (age, goals, frustrations) to guide design decisions.</li>
-                <li><strong>User Journeys:</strong> Map out user interactions to identify touchpoints, emotions, and opportunities for improvement.</li>
-                <li><strong>Empathy Mapping:</strong> Understand users’ thoughts, feelings, and motivations to create empathetic designs.</li>
+                <li>
+                  <strong>User Research:</strong> Conduct interviews, surveys,
+                  and contextual inquiries to gather insights into user
+                  behaviors and pain points.
+                </li>
+                <li>
+                  <strong>Personas:</strong> Develop detailed user profiles
+                  (age, goals, frustrations) to guide design decisions.
+                </li>
+                <li>
+                  <strong>User Journeys:</strong> Map out user interactions to
+                  identify touchpoints, emotions, and opportunities for
+                  improvement.
+                </li>
+                <li>
+                  <strong>Empathy Mapping:</strong> Understand users’ thoughts,
+                  feelings, and motivations to create empathetic designs.
+                </li>
               </ul>
-              <strong>Example:</strong> A persona for a productivity app might represent a busy professional needing quick task management, guiding the design toward simplicity and speed.
+              <strong>Example:</strong> A persona for a productivity app might
+              represent a busy professional needing quick task management,
+              guiding the design toward simplicity and speed.
             </SectionText>
-            <StyledImage src={UserPersona} alt="Detailed user persona for a productivity app in UI/UX design" />
-            <Caption>User persona showcasing demographics, goals, and frustrations.</Caption>
+            <StyledImage
+              src={UserPersona}
+              alt="Detailed user persona for a productivity app in UI/UX design"
+            />
+            <Caption>
+              User persona showcasing demographics, goals, and frustrations.
+            </Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: User Feedback Form</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
-                A form that collects user feedback with real-time validation, designed for accessibility and simplicity.
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: User Feedback Form
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
+                A form that collects user feedback with real-time validation,
+                designed for accessibility and simplicity.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>
                 {`
@@ -233,27 +296,60 @@ export default UserFeedbackForm;
         </Card>
 
         {/* Section 2: Accessibility */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>2. Accessibility (a11y)</SectionTitle>
             <SectionText>
-              Accessibility ensures interfaces are usable by people with disabilities, adhering to WCAG 2.1 guidelines. Key practices:
+              Accessibility ensures interfaces are usable by people with
+              disabilities, adhering to WCAG 2.1 guidelines. Key practices:
               <ul>
-                <li><strong>Semantic HTML:</strong> Use tags like <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> for screen reader compatibility.</li>
-                <li><strong>ARIA Attributes:</strong> Add roles and labels (e.g., <code>aria-label</code>) for dynamic content.</li>
-                <li><strong>Keyboard Navigation:</strong> Support Tab, Enter, and arrow keys for all interactive elements.</li>
-                <li><strong>Color Contrast:</strong> Ensure text-to-background contrast ratios meet 4.5:1 for normal text, 3:1 for large text.</li>
-                <li><strong>Screen Reader Testing:</strong> Use tools like NVDA or VoiceOver to verify compatibility.</li>
+                <li>
+                  <strong>Semantic HTML:</strong> Use tags like{" "}
+                  <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> for screen
+                  reader compatibility.
+                </li>
+                <li>
+                  <strong>ARIA Attributes:</strong> Add roles and labels (e.g.,{" "}
+                  <code>aria-label</code>) for dynamic content.
+                </li>
+                <li>
+                  <strong>Keyboard Navigation:</strong> Support Tab, Enter, and
+                  arrow keys for all interactive elements.
+                </li>
+                <li>
+                  <strong>Color Contrast:</strong> Ensure text-to-background
+                  contrast ratios meet 4.5:1 for normal text, 3:1 for large
+                  text.
+                </li>
+                <li>
+                  <strong>Screen Reader Testing:</strong> Use tools like NVDA or
+                  VoiceOver to verify compatibility.
+                </li>
               </ul>
-              <strong>Example:</strong> A modal dialog with ARIA attributes ensures screen readers can navigate it effectively.
+              <strong>Example:</strong> A modal dialog with ARIA attributes
+              ensures screen readers can navigate it effectively.
             </SectionText>
-            <StyledImage src={AccessibilityChecklist} alt="Accessibility checklist for UI/UX design with WCAG guidelines" />
-            <Caption>Checklist for ensuring WCAG-compliant accessible interfaces.</Caption>
+            <StyledImage
+              src={AccessibilityChecklist}
+              alt="Accessibility checklist for UI/UX design with WCAG guidelines"
+            />
+            <Caption>
+              Checklist for ensuring WCAG-compliant accessible interfaces.
+            </Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: Accessible Modal</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
-                A modal with focus trapping and ARIA attributes for screen reader support.
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: Accessible Modal
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
+                A modal with focus trapping and ARIA attributes for screen
+                reader support.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>
                 {`
@@ -306,26 +402,54 @@ export default AccessibleModal;
         </Card>
 
         {/* Section 3: Visual Hierarchy */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>3. Visual Hierarchy</SectionTitle>
             <SectionText>
-              Visual hierarchy directs user attention to key elements using design principles:
+              Visual hierarchy directs user attention to key elements using
+              design principles:
               <ul>
-                <li><strong>Typography:</strong> Vary font sizes, weights (e.g., bold headings), and spacing for emphasis.</li>
-                <li><strong>Color:</strong> Use contrasting colors for CTAs (e.g., bright buttons on neutral backgrounds).</li>
-                <li><strong>Spacing:</strong> Leverage whitespace to group related elements and reduce cognitive load.</li>
-                <li><strong>Alignment and Proximity:</strong> Align elements consistently and place related items closer together.</li>
-                <li><strong>Size and Scale:</strong> Larger elements draw more attention (e.g., hero sections).</li>
+                <li>
+                  <strong>Typography:</strong> Vary font sizes, weights (e.g.,
+                  bold headings), and spacing for emphasis.
+                </li>
+                <li>
+                  <strong>Color:</strong> Use contrasting colors for CTAs (e.g.,
+                  bright buttons on neutral backgrounds).
+                </li>
+                <li>
+                  <strong>Spacing:</strong> Leverage whitespace to group related
+                  elements and reduce cognitive load.
+                </li>
+                <li>
+                  <strong>Alignment and Proximity:</strong> Align elements
+                  consistently and place related items closer together.
+                </li>
+                <li>
+                  <strong>Size and Scale:</strong> Larger elements draw more
+                  attention (e.g., hero sections).
+                </li>
               </ul>
-              <strong>Example:</strong> A dashboard card with a prominent title and actionable button guides users effectively.
+              <strong>Example:</strong> A dashboard card with a prominent title
+              and actionable button guides users effectively.
             </SectionText>
-            <StyledImage src={VisualHierarchy} alt="Dashboard design showcasing visual hierarchy with typography and color" />
+            <StyledImage
+              src={VisualHierarchy}
+              alt="Dashboard design showcasing visual hierarchy with typography and color"
+            />
             <Caption>Dashboard wireframe emphasizing visual hierarchy.</Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: Dashboard Card</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: Dashboard Card
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
                 A card component with clear visual hierarchy for a dashboard.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>
@@ -364,50 +488,108 @@ export default DashboardCard;
         </Card>
 
         {/* Section 4: Usability Testing */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>4. Usability Testing</SectionTitle>
             <SectionText>
-              Usability testing validates interface intuitiveness and efficiency through real user interactions. Key methods:
+              Usability testing validates interface intuitiveness and efficiency
+              through real user interactions. Key methods:
               <ul>
-                <li><strong>A/B Testing:</strong> Test two design variants to compare performance metrics (e.g., conversion rates).</li>
-                <li><strong>Heatmaps:</strong> Visualize user clicks, scrolls, and attention areas using tools like Hotjar.</li>
-                <li><strong>Task Analysis:</strong> Observe users completing tasks to identify friction points.</li>
-                <li><strong>User Feedback:</strong> Collect qualitative insights via surveys or interviews.</li>
-                <li><strong>Analytics Integration:</strong> Use tools like Google Analytics to track user behavior.</li>
+                <li>
+                  <strong>A/B Testing:</strong> Test two design variants to
+                  compare performance metrics (e.g., conversion rates).
+                </li>
+                <li>
+                  <strong>Heatmaps:</strong> Visualize user clicks, scrolls, and
+                  attention areas using tools like Hotjar.
+                </li>
+                <li>
+                  <strong>Task Analysis:</strong> Observe users completing tasks
+                  to identify friction points.
+                </li>
+                <li>
+                  <strong>User Feedback:</strong> Collect qualitative insights
+                  via surveys or interviews.
+                </li>
+                <li>
+                  <strong>Analytics Integration:</strong> Use tools like Google
+                  Analytics to track user behavior.
+                </li>
               </ul>
-              <strong>Example:</strong> A heatmap showing high click density on a CTA button indicates effective design.
+              <strong>Example:</strong> A heatmap showing high click density on
+              a CTA button indicates effective design.
             </SectionText>
-            <StyledImage src={UsabilityHeatmap} alt="Heatmap visualizing user interactions on a webpage" />
-            <Caption>Heatmap showing user engagement with a CTA button.</Caption>
+            <StyledImage
+              src={UsabilityHeatmap}
+              alt="Heatmap visualizing user interactions on a webpage"
+            />
+            <Caption>
+              Heatmap showing user engagement with a CTA button.
+            </Caption>
 
             <Alert variant="info" className="mb-3">
-              Tools like Hotjar, Crazy Egg, or Google Optimize provide actionable insights for usability testing, helping refine designs based on real user data.
+              Tools like Hotjar, Crazy Egg, or Google Optimize provide
+              actionable insights for usability testing, helping refine designs
+              based on real user data.
             </Alert>
           </Card.Body>
         </Card>
 
         {/* Section 5: Prototyping */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>5. Prototyping</SectionTitle>
             <SectionText>
-              Prototyping allows designers to test and iterate on ideas before development. Types include:
+              Prototyping allows designers to test and iterate on ideas before
+              development. Types include:
               <ul>
-                <li><strong>Low-Fidelity Prototypes:</strong> Wireframes or paper sketches for early concepts.</li>
-                <li><strong>High-Fidelity Prototypes:</strong> Interactive mockups (e.g., Figma, Adobe XD) that mimic final designs.</li>
-                <li><strong>Interactive Prototypes:</strong> Simulate user flows with clickable elements.</li>
-                <li><strong>Code-Based Prototypes:</strong> Use React for rapid prototyping of complex interactions.</li>
+                <li>
+                  <strong>Low-Fidelity Prototypes:</strong> Wireframes or paper
+                  sketches for early concepts.
+                </li>
+                <li>
+                  <strong>High-Fidelity Prototypes:</strong> Interactive mockups
+                  (e.g., Figma, Adobe XD) that mimic final designs.
+                </li>
+                <li>
+                  <strong>Interactive Prototypes:</strong> Simulate user flows
+                  with clickable elements.
+                </li>
+                <li>
+                  <strong>Code-Based Prototypes:</strong> Use React for rapid
+                  prototyping of complex interactions.
+                </li>
               </ul>
-              <strong>Example:</strong> A high-fidelity prototype in Figma can simulate a checkout flow to test usability before coding.
+              <strong>Example:</strong> A high-fidelity prototype in Figma can
+              simulate a checkout flow to test usability before coding.
             </SectionText>
-            <StyledImage src={PrototypeMockup} alt="High-fidelity prototype of a checkout flow in Figma" />
-            <Caption>High-fidelity prototype for a checkout flow, created in Figma.</Caption>
+            <StyledImage
+              src={PrototypeMockup}
+              alt="High-fidelity prototype of a checkout flow in Figma"
+            />
+            <Caption>
+              High-fidelity prototype for a checkout flow, created in Figma.
+            </Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: Interactive Prototype</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
-                A simple interactive prototype for a product card with hover effects.
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: Interactive Prototype
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
+                A simple interactive prototype for a product card with hover
+                effects.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>
                 {`
@@ -455,25 +637,52 @@ export default ProductCardPrototype;
         </Card>
 
         {/* Section 6: Information Architecture */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>6. Information Architecture</SectionTitle>
             <SectionText>
-              Information architecture (IA) organizes content to make it intuitive and findable. Key aspects:
+              Information architecture (IA) organizes content to make it
+              intuitive and findable. Key aspects:
               <ul>
-                <li><strong>Navigation Systems:</strong> Design clear menus, breadcrumbs, or search functions.</li>
-                <li><strong>Content Grouping:</strong> Categorize information logically (e.g., by topic or user task).</li>
-                <li><strong>Labeling:</strong> Use clear, concise labels for navigation and buttons.</li>
-                <li><strong>Searchability:</strong> Implement filters or search bars for large datasets.</li>
+                <li>
+                  <strong>Navigation Systems:</strong> Design clear menus,
+                  breadcrumbs, or search functions.
+                </li>
+                <li>
+                  <strong>Content Grouping:</strong> Categorize information
+                  logically (e.g., by topic or user task).
+                </li>
+                <li>
+                  <strong>Labeling:</strong> Use clear, concise labels for
+                  navigation and buttons.
+                </li>
+                <li>
+                  <strong>Searchability:</strong> Implement filters or search
+                  bars for large datasets.
+                </li>
               </ul>
-              <strong>Example:</strong> A well-structured navigation menu reduces user effort to find content.
+              <strong>Example:</strong> A well-structured navigation menu
+              reduces user effort to find content.
             </SectionText>
-            <StyledImage src={SitemapDiagram} alt="Sitemap illustrating information architecture for a website" />
-            <Caption>Sitemap showing organized content structure for a website.</Caption>
+            <StyledImage
+              src={SitemapDiagram}
+              alt="Sitemap illustrating information architecture for a website"
+            />
+            <Caption>
+              Sitemap showing organized content structure for a website.
+            </Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: Navigation Menu</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: Navigation Menu
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
                 A responsive navigation menu with clear labeling and hierarchy.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>
@@ -505,25 +714,51 @@ export default NavigationMenu;
         </Card>
 
         {/* Section 7: Microinteractions */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>7. Microinteractions</SectionTitle>
             <SectionText>
-              Microinteractions are subtle animations or feedback that enhance user experiences. Examples include:
+              Microinteractions are subtle animations or feedback that enhance
+              user experiences. Examples include:
               <ul>
-                <li><strong>Hover Effects:</strong> Visual cues like button color changes.</li>
-                <li><strong>Loading States:</strong> Spinners or progress bars for asynchronous actions.</li>
-                <li><strong>Form Feedback:</strong> Real-time validation messages.</li>
-                <li><strong>Transitions:</strong> Smooth animations between states (e.g., modal open/close).</li>
+                <li>
+                  <strong>Hover Effects:</strong> Visual cues like button color
+                  changes.
+                </li>
+                <li>
+                  <strong>Loading States:</strong> Spinners or progress bars for
+                  asynchronous actions.
+                </li>
+                <li>
+                  <strong>Form Feedback:</strong> Real-time validation messages.
+                </li>
+                <li>
+                  <strong>Transitions:</strong> Smooth animations between states
+                  (e.g., modal open/close).
+                </li>
               </ul>
-              <strong>Example:</strong> A button that scales slightly on hover improves perceived interactivity.
+              <strong>Example:</strong> A button that scales slightly on hover
+              improves perceived interactivity.
             </SectionText>
-            <StyledImage src={MicrointeractionButton} alt="Microinteraction showing a button hover effect" />
-            <Caption>Button hover effect demonstrating a microinteraction.</Caption>
+            <StyledImage
+              src={MicrointeractionButton}
+              alt="Microinteraction showing a button hover effect"
+            />
+            <Caption>
+              Button hover effect demonstrating a microinteraction.
+            </Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: Animated Button</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: Animated Button
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
                 A button with a hover animation for enhanced user feedback.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>
@@ -560,25 +795,52 @@ export default MicrointeractionButton;
         </Card>
 
         {/* Section 8: Design Systems */}
-        <Card className="mb-5" style={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+        <Card
+          className="mb-5"
+          style={{
+            backgroundColor: "rgba(10, 25, 47, 0.85)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
           <Card.Body>
             <SectionTitle>8. Design Systems</SectionTitle>
             <SectionText>
-              Design systems provide reusable components and guidelines for consistent interfaces. Benefits:
+              Design systems provide reusable components and guidelines for
+              consistent interfaces. Benefits:
               <ul>
-                <li><strong>Scalability:</strong> Reuse components across projects.</li>
-                <li><strong>Consistency:</strong> Uniform typography, colors, and layouts.</li>
-                <li><strong>Efficiency:</strong> Reduce development time with pre-built components.</li>
-                <li><strong>Collaboration:</strong> Align design and development teams.</li>
+                <li>
+                  <strong>Scalability:</strong> Reuse components across
+                  projects.
+                </li>
+                <li>
+                  <strong>Consistency:</strong> Uniform typography, colors, and
+                  layouts.
+                </li>
+                <li>
+                  <strong>Efficiency:</strong> Reduce development time with
+                  pre-built components.
+                </li>
+                <li>
+                  <strong>Collaboration:</strong> Align design and development
+                  teams.
+                </li>
               </ul>
-              <strong>Example:</strong> A design system with buttons, inputs, and cards ensures a cohesive UI.
+              <strong>Example:</strong> A design system with buttons, inputs,
+              and cards ensures a cohesive UI.
             </SectionText>
-            <StyledImage src={DesignSystem} alt="Design system showcasing reusable UI components like buttons and inputs" />
-            <Caption>Design system with standardized buttons, inputs, and typography.</Caption>
+            <StyledImage
+              src={DesignSystem}
+              alt="Design system showcasing reusable UI components like buttons and inputs"
+            />
+            <Caption>
+              Design system with standardized buttons, inputs, and typography.
+            </Caption>
 
             <CodeSection>
-              <h3 style={{ color: '#ccd6f6', marginBottom: '1rem' }}>React Bootstrap Example: Design System Component</h3>
-              <SectionText style={{ marginBottom: '1rem' }}>
+              <h3 style={{ color: "#ccd6f6", marginBottom: "1rem" }}>
+                React Bootstrap Example: Design System Component
+              </h3>
+              <SectionText style={{ marginBottom: "1rem" }}>
                 A reusable button component with variants for a design system.
               </SectionText>
               <SyntaxHighlighter language="jsx" style={vscDarkPlus}>

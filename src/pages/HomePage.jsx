@@ -7,9 +7,10 @@ import AnimatedPage from "../components/AnimatedPage";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-const HomePage = ({ country = "default" }) => {
+const HomePage = () => {
   const [email, setEmail] = useState("");
   const [request, setRequest] = useState("");
+  const [country, setCountry] = useState(""); // Yeni state
   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -46,7 +47,8 @@ const HomePage = ({ country = "default" }) => {
     },
   };
 
-  const { title, description, keywords } = countryContent[country];
+  // country state’ine göre SEO içeriği
+  const { title, description, keywords } = countryContent[country || "default"];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,13 +62,19 @@ const HomePage = ({ country = "default" }) => {
       return;
     }
 
-    if (!email || !request) {
-      setError("Please fill in both email and request fields.");
+    if (!email || !request || !country) {
+      setError("Please fill in all fields.");
       setLoading(false);
       return;
     }
 
     try {
+      console.log("Writing to Firestore:", {
+        email,
+        request,
+        country,
+        submittedAt: new Date(),
+      });
       await addDoc(collection(db, "subscribers"), {
         email,
         request,
@@ -76,6 +84,7 @@ const HomePage = ({ country = "default" }) => {
       setMessage("Thank you! Your request has been submitted successfully.");
       setEmail("");
       setRequest("");
+      setCountry("");
       setRecaptchaToken(null);
     } catch (err) {
       console.error("Firestore Error:", err);
@@ -94,9 +103,7 @@ const HomePage = ({ country = "default" }) => {
         <meta name="author" content="Suleyman Unver" />
         <link
           rel="canonical"
-          href={`https://www.reconceptx.com/${
-            country === "default" ? "" : country
-          }`}
+          href={`https://www.reconceptx.com/${country === "" ? "" : country}`}
         />
         <link
           rel="alternate"
@@ -124,9 +131,7 @@ const HomePage = ({ country = "default" }) => {
             "@type": "Person",
             name: "Suleyman Unver",
             jobTitle: "Full Stack Developer",
-            url: `https://www.reconceptx.com/${
-              country === "default" ? "" : country
-            }`,
+            url: `https://www.reconceptx.com/${country === "" ? "" : country}`,
             description: description,
             sameAs: [
               "www.linkedin.com/in/süleyman-ünver-9b3950245",
@@ -276,6 +281,26 @@ const HomePage = ({ country = "default" }) => {
                       style={{ backgroundColor: "white", borderRadius: "4px" }}
                     />
                   </Form.Group>
+                  <Form.Group
+                    controlId="formCountry"
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <Form.Label style={{ color: "white" }}>
+                      Your Country
+                    </Form.Label>
+                    <Form.Select
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
+                      required
+                      style={{ backgroundColor: "white", borderRadius: "4px" }}
+                    >
+                      <option value="">Select a country</option>
+                      <option value="us">United States</option>
+                      <option value="ca">Canada</option>
+                      <option value="au">Australia</option>
+                      <option value="default">Other</option>
+                    </Form.Select>
+                  </Form.Group>
                   <div
                     style={{
                       display: "flex",
@@ -309,7 +334,7 @@ const HomePage = ({ country = "default" }) => {
                   <Button
                     variant="primary"
                     type="submit"
-                    disabled={loading}
+                    disabled={loading || !recaptchaToken}
                     style={{
                       backgroundColor: "#64ffda",
                       borderColor: "#64ffda",

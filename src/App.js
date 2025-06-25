@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
 import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -9,9 +9,12 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import DeepDivesPage from "./pages/DeepDivesPage";
 import UIUXDesignPage from "./pages/UIUXDesignPage";
-import { Box } from "@mui/material";
+import MobileAppPage from "./pages/MobileAppPage";
+import WebAppPage from "./pages/WebAppPage";
+import LLMPage from "./pages/LLMPage"; // Yeni sayfa
 import { Analytics } from "@vercel/analytics/react";
 
+// Theme tanımı
 const theme = createTheme({
   palette: {
     primary: { main: "#64ffda" },
@@ -109,7 +112,7 @@ function App() {
           <Box
             component="main"
             sx={{
-              flex: 1, // Hata düzeltildi: `1'` yerine `1`
+              flex: 1,
               width: "100%",
               maxWidth: "100%",
               px: { xs: 2, sm: 3, md: 4 },
@@ -175,6 +178,34 @@ function App() {
                 path="/ui-ux/au"
                 element={<UIUXDesignPage country="au" />}
               />
+              <Route
+                path="/mobile-app"
+                element={<MobileAppPage country="default" />}
+              />
+              <Route
+                path="/mobile-app/us"
+                element={<MobileAppPage country="us" />}
+              />
+              <Route
+                path="/mobile-app/ca"
+                element={<MobileAppPage country="ca" />}
+              />
+              <Route
+                path="/mobile-app/au"
+                element={<MobileAppPage country="au" />}
+              />
+              <Route
+                path="/web-app"
+                element={<WebAppPage country="default" />}
+              />
+              <Route path="/web-app/us" element={<WebAppPage country="us" />} />
+              <Route path="/web-app/ca" element={<WebAppPage country="ca" />} />
+              <Route path="/web-app/au" element={<WebAppPage country="au" />} />
+              <Route path="/llm" element={<LLMPage country="default" />} />{" "}
+              {/* Yeni rota */}
+              <Route path="/llm/us" element={<LLMPage country="us" />} />
+              <Route path="/llm/ca" element={<LLMPage country="ca" />} />
+              <Route path="/llm/au" element={<LLMPage country="au" />} />
             </Routes>
             <Analytics />
           </Box>

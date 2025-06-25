@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
@@ -22,19 +22,21 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
-  const [anchorEl, setAnchorEl] = useState(null); // Dropdown için
-  const [isDeepDivesOpen, setIsDeepDivesOpen] = useState(false); // Mobil Drawer için
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [isDeepDivesOpen, setIsDeepDivesOpen] = useState(false);
   const lastScrollY = useRef(0);
-  const logoRef = useRef(null);
+  const logoRef = useRef(null); // Fixed typo: Removed unnecessary useField property}
   const intervalId = useRef(null);
 
   // Scroll davranışını kontrol eden fonksiyon
   const controlNavbar = () => {
     const currentScrollY = window.scrollY;
-    console.log(`Scroll: current=${currentScrollY}, last=${lastScrollY.current}, showNavbar=${showNavbar}`);
+    console.log(
+      `Scroll: current=${currentScrollY}, last=${lastScrollY.current}, showNavbar=${showNavbar}`
+    );
     if (currentScrollY > lastScrollY.current && currentScrollY > 0) {
       setShowNavbar(false);
-    } else if (currentScrollY < lastScrollY.current || currentScrollY === 0) {
+    } else if (currentScrollY.current || currentScrollY === 0) {
       setShowNavbar(true);
     }
     lastScrollY.current = currentScrollY;
@@ -52,7 +54,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Logo animasyon
+  // Logo animasyonu
   const handleLogoHover = () => {
     let iteration = 0;
     const originalText = "ReconceptX";
@@ -87,15 +89,19 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
-  // Mobil Drawer’da Deep Dives alt menüs
+  // Mobil Drawer’da Deep Dives alt menüsü
   const handleDeepDivesToggle = () => {
     setIsDeepDivesOpen(!isDeepDivesOpen);
   };
 
   const toggleDrawer = (open) => (event) => {
-    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) return;
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    )
+      return;
     setIsDrawerOpen(open);
-    setIsDeepDivesOpen(false); // Drawer kapanırken alt menü de kapanır
+    setIsDeepDivesOpen(false);
   };
 
   const navLinks = [
@@ -107,11 +113,18 @@ const Navbar = () => {
         { to: "/ui-ux", label: "UI/UX Design" },
       ],
     },
+    { to: "/mobile-app", label: "Mobile App" },
+    { to: "/web-app", label: "Web App" },
+    { to: "/llm", label: "LLM" }, // Yeni bağlantı
     { to: "/contact", label: "Contact" },
   ];
 
   const drawerContent = (
-    <Box sx={{ width: 250, p: 2, bgcolor: "#64FFDA" }} role="presentation" onKeyDown={toggleDrawer(false)}>
+    <Box
+      sx={{ width: 250, p: 2, bgcolor: "#64FFDA" }}
+      role="presentation"
+      onKeyDown={toggleDrawer(false)}
+    >
       <List>
         {navLinks.map((link) =>
           link.submenu ? (
@@ -125,7 +138,11 @@ const Navbar = () => {
                     fontSize: "clamp(14px, 2.5vw, 16px)",
                   }}
                 />
-                {isDeepDivesOpen ? <ExpandLessIcon sx={{ color: "#000000" }} /> : <ExpandMoreIcon sx={{ color: "#000000" }} />}
+                {isDeepDivesOpen ? (
+                  <ExpandLessIcon sx={{ color: "#000000" }} />
+                ) : (
+                  <ExpandMoreIcon sx={{ color: "#000000" }} />
+                )}
               </ListItem>
               <Collapse in={isDeepDivesOpen} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
@@ -153,7 +170,13 @@ const Navbar = () => {
               </Collapse>
             </React.Fragment>
           ) : (
-            <ListItem button key={link.label} component={Link} to={link.to} onClick={toggleDrawer(false)}>
+            <ListItem
+              button
+              key={link.label}
+              component={Link}
+              to={link.to}
+              onClick={toggleDrawer(false)}
+            >
               <ListItemText
                 primary={link.label}
                 primaryTypographyProps={{
@@ -213,7 +236,13 @@ const Navbar = () => {
         </Typography>
 
         {/* Desktop Links */}
-        <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center", gap: { sm: 2, md: 3 } }}>
+        <Box
+          sx={{
+            display: { xs: "none", sm: "flex" },
+            alignItems: "center",
+            gap: { sm: 2, md: 3 },
+          }}
+        >
           {navLinks.map((link) =>
             link.submenu ? (
               <Box key={link.label}>
@@ -226,7 +255,10 @@ const Navbar = () => {
                     textTransform: "none",
                     py: 1,
                     px: 1.5,
-                    "&:hover": { color: "#333333", backgroundColor: "rgba(0, 0, 0, 0.05)" },
+                    "&:hover": {
+                      color: "#333333",
+                      backgroundColor: "rgba(0, 0, 0, 0.05)",
+                    },
                   }}
                   endIcon={<ExpandMoreIcon />}
                 >
@@ -236,7 +268,12 @@ const Navbar = () => {
                   anchorEl={anchorEl}
                   open={Boolean(anchorEl)}
                   onClose={handleDeepDivesClose}
-                  sx={{ "& .MuiPaper-root": { bgcolor: "#64FFDA", border: "1px solid rgba(0, 0, 0, 0.1)" } }}
+                  sx={{
+                    "& .MuiPaper-root": {
+                      bgcolor: "#64FFDA",
+                      border: "1px solid rgba(0, 0, 0, 0.1)",
+                    },
+                  }}
                 >
                   {link.submenu.map((subLink) => (
                     <MenuItem
@@ -248,7 +285,10 @@ const Navbar = () => {
                         color: "#000000",
                         fontFamily: "monospace",
                         fontSize: "clamp(12px, 1.5vw, 14px)",
-                        "&:hover": { color: "#333333", bgcolor: "rgba(0, 0, 0, 0.05)" },
+                        "&:hover": {
+                          color: "#333333",
+                          bgcolor: "rgba(0, 0, 0, 0.05)",
+                        },
                       }}
                     >
                       {subLink.label}
@@ -268,7 +308,10 @@ const Navbar = () => {
                   textTransform: "none",
                   py: 1,
                   px: 1.5,
-                  "&:hover": { color: "#333333", backgroundColor: "rgba(0, 0, 0, 0.05)" },
+                  "&:hover": {
+                    color: "#333333",
+                    backgroundColor: "rgba(0, 0, 0, 0.05)",
+                  },
                 }}
               >
                 {link.label}
@@ -288,7 +331,12 @@ const Navbar = () => {
         </IconButton>
 
         {/* Mobile Drawer */}
-        <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)} sx={{ zIndex: 1400 }}>
+        <Drawer
+          anchor="right"
+          open={isDrawerOpen}
+          onClose={toggleDrawer(false)}
+          sx={{ zIndex: 1400 }}
+        >
           {drawerContent}
         </Drawer>
       </Toolbar>

@@ -1,42 +1,97 @@
-import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Alert,
+} from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import { Helmet } from "react-helmet-async";
+import ReCAPTCHA from "react-google-recaptcha";
 import AnimatedPage from "../components/AnimatedPage";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const HomePage = ({ country = "default" }) => {
+  const [email, setEmail] = useState("");
+  const [request, setRequest] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const countryContent = {
     us: {
       title: "Suleyman Unver - Full Stack Developer in the USA",
       description:
         "Suleyman Unver, a Full Stack Developer specializing in MERN stack and PostgreSQL, crafting scalable web and mobile applications for USA businesses.",
       keywords:
-        "full stack developer USA, MERN stack developer, web development USA, PostgreSQL developer",
+        "full stack developer USA, MERN stack developer, web development USA, PostgreSQL developer, free project consultation",
     },
     ca: {
       title: "Suleyman Unver - Software Developer in Canada",
       description:
         "Suleyman Unver, a software developer delivering fintech and health tech solutions using MERN stack and PostgreSQL for Canadian enterprises.",
       keywords:
-        "software developer Canada, MERN stack Toronto, PostgreSQL development, mobile app developer Canada",
+        "software developer Canada, MERN stack Toronto, PostgreSQL development, mobile app developer Canada, free project consultation",
     },
     au: {
       title: "Suleyman Unver - Web Developer in Australia",
       description:
         "Suleyman Unver, a web developer building scalable platforms for Australian startups using MERN stack and PostgreSQL expertise.",
       keywords:
-        "web developer Australia, MERN stack Sydney, scalable app development, software developer Australia",
+        "web developer Australia, MERN stack Sydney, scalable app development, software developer Australia, free project consultation",
     },
     default: {
       title: "Suleyman Unver - Full Stack Developer",
       description:
         "I'm a seasoned Full Stack Developer specializing in the MERN stack and PostgreSQL, with a knack for building robust, scalable web and mobile applications.",
       keywords:
-        "full stack developer, MERN stack, PostgreSQL, web development, mobile app development",
+        "full stack developer, MERN stack, PostgreSQL, web development, mobile app development, free project consultation",
     },
   };
 
   const { title, description, keywords } = countryContent[country];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+    setError("");
+
+    if (!recaptchaToken) {
+      setError("Please complete the reCAPTCHA.");
+      setLoading(false);
+      return;
+    }
+
+    if (!email || !request) {
+      setError("Please fill in both email and request fields.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      // Firestore’a e-posta ve talebi kaydet
+      await addDoc(collection(db, "subscribers"), {
+        email,
+        request,
+        country,
+        submittedAt: new Date(),
+      });
+
+      setMessage("Thank you! Your request has been submitted successfully.");
+      setEmail("");
+      setRequest("");
+      setRecaptchaToken(null);
+    } catch (err) {
+      console.error("Error:", err);
+      setError("An error occurred. Please try again.");
+    }
+    setLoading(false);
+  };
 
   return (
     <AnimatedPage>
@@ -102,11 +157,10 @@ const HomePage = ({ country = "default" }) => {
       </Helmet>
       <Container
         sx={{
-          // === DEĞİŞİKLİKLER BURADA ===
-          pt: { xs: 8, sm: 10 }, // paddingTop: Mobil için 64px, tablet ve üstü için 80px boşluk ekler.
-          pb: 4, // Alttan da biraz boşluk vererek dengeleyelim (paddingBottom).
+          pt: { xs: 8, sm: 10 },
+          pb: 4,
           minHeight: { xs: "70vh", sm: "80vh" },
-          display: "flex", // Yazım hatası düzeltildi: 'flex"' -> 'flex'
+          display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
@@ -120,9 +174,9 @@ const HomePage = ({ country = "default" }) => {
           sx={{
             color: "white",
             fontFamily: "monospace",
-            fontWeight: 700,
+            fontWeight: "bold",
             mb: 2,
-            fontSize: "clamp(2.5rem, 6vw, 3.5rem)", // Daha iyi mobil uyumluluk için font boyutunu responsive yapalım
+            fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
           }}
         >
           Hi, My name is
@@ -131,9 +185,9 @@ const HomePage = ({ country = "default" }) => {
           variant="h2"
           sx={{
             color: "white",
-            fontWeight: 700,
+            fontWeight: "bold",
             mb: 1,
-            fontSize: "clamp(3rem, 8vw, 5rem)", // Daha iyi mobil uyumluluk için font boyutunu responsive yapalım
+            fontSize: "clamp(3rem, 8vw, 5rem)",
           }}
         >
           Suleyman Unver.
@@ -142,9 +196,9 @@ const HomePage = ({ country = "default" }) => {
           variant="h3"
           sx={{
             color: "white",
-            fontWeight: 700,
+            fontWeight: "bold",
             mb: 2,
-            fontSize: "clamp(1.5rem, 4vw, 2.5rem)", // Daha iyi mobil uyumluluk için font boyutunu responsive yapalım
+            fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
           }}
         >
           <TypeAnimation
@@ -166,8 +220,9 @@ const HomePage = ({ country = "default" }) => {
             maxWidth: "90%",
             fontSize: "clamp(0.875rem, 2vw, 1rem)",
             color: "white",
-            fontWeight: 700,
-            lineHeight: 1.6, // Okunabilirliği artırmak için satır yüksekliği ekleyelim
+            fontWeight: "bold",
+            lineHeight: 1.6,
+            mb: 4,
           }}
         >
           I'm a seasoned Full Stack Developer specializing in the MERN stack and
@@ -177,6 +232,79 @@ const HomePage = ({ country = "default" }) => {
           APIs and Large Language Models to solve complex challenges. Let's
           build the future of the web together!
         </Typography>
+        {/* E-posta ve Talep Formu */}
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            maxWidth: "600px",
+            width: "100%",
+            bgcolor: "rgba(10, 25, 47, 0.85)",
+            p: 3,
+            borderRadius: "8px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+          }}
+        >
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#64ffda",
+              fontFamily: "monospace",
+              mb: 2,
+              fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+            }}
+          >
+            Get Free Consulting!
+          </Typography>
+          <TextField
+            fullWidth
+            label="Your Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            sx={{ mb: 2, bgcolor: "white", borderRadius: 4 }}
+          />
+          <TextField
+            fullWidth
+            label="Your Request (e.g., Mobile App, Web App, LLM)"
+            multiline
+            rows={4}
+            value={request}
+            onChange={(e) => setRequest(e.target.value)}
+            required
+            sx={{ mb: 2, bgcolor: "white", borderRadius: 4 }}
+          />
+          <ReCAPTCHA
+            sitekey="6LfmeG0rAAAAAA4w3gAZlR9S_gx6LUiny2j9RHGf"
+            onChange={(token) => setRecaptchaToken(token)}
+            sx={{ mb: 2 }}
+          />
+          {message && (
+            <Alert severity="success" sx={{ mb: 2 }}>
+              {message}
+            </Alert>
+          )}
+          {error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {error}
+            </Alert>
+          )}
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={loading || !recaptchaToken}
+            sx={{
+              bgcolor: "#64ffda",
+              color: "#0a192f",
+              fontFamily: "monospace",
+              fontSize: "clamp(0.9rem, 2vw, 1rem)",
+              "&:hover": { bgcolor: "#4ad0b0" },
+            }}
+          >
+            {loading ? "Submitting..." : "Submit"}
+          </Button>
+        </Box>
       </Container>
     </AnimatedPage>
   );

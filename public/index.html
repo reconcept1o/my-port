@@ -1,11 +1,13 @@
+<!-- public/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0A192F" /> <!-- Tema rengi HomePage.js ile uyumlu -->
+    <meta name="theme-color" content="#0A192F" />
     <meta name="description" content="Suleyman Unver - Full Stack Developer specializing in MERN stack and PostgreSQL" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> <!-- Favicon için standart yol -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Suleyman Unver - Full Stack Developer</title>
@@ -14,9 +16,13 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
+      // Varsayılan olarak her şeyi reddet
       gtag('consent', 'default', {
-        'analytics_storage': 'denied', // Varsayılan olarak analitik çerezleri devre dışı
-        'ad_storage': 'denied' // Reklam çerezleri devre dışı
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'denied'
       });
     </script>
 
@@ -28,20 +34,11 @@
       gtag('js', new Date());
       gtag('config', 'G-0PBZ7QKMFZ');
     </script>
-
-    <!-- Silktide Cookie Consent -->
-    <script
-      src="https://cdn.silktide.com/cookie-consent.min.js"
-      data-site-id="your-site-id"
-      data-consent-mode="true"
-      data-policy-url="https://www.reconceptx.com/privacy-policy"
-      async
-    ></script>
-  </head>
-  <body>
+</head>
+<body>
     <noscript>
       You need to enable JavaScript to run this app. Visit reconceptx.com for more information.
     </noscript>
     <div id="root"></div>
-  </body>
+</body>
 </html>

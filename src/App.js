@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
 import { HelmetProvider } from "react-helmet-async";
+import CookieConsent from "react-cookie-consent";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -12,22 +14,17 @@ import UIUXDesignPage from "./pages/UIUXDesignPage";
 import MobileAppPage from "./pages/MobileAppPage";
 import WebAppPage from "./pages/WebAppPage";
 import LLMPage from "./pages/LLMPage";
-import PrivacyPolicy from "./pages/PrivacyPolicy"; // Yeni sayfa
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy"; // YENİ EKLENDİ
 import { Analytics } from "@vercel/analytics/react";
 
-// Theme tanımı
+// Theme tanımı (Değişiklik yok)
 const theme = createTheme({
   palette: {
     primary: { main: "#64ffda" },
     secondary: { main: "#ccd6f6" },
-    text: {
-      primary: "#8892b0",
-      secondary: "#a8b2d1",
-    },
-    background: {
-      default: "#0a192f",
-      paper: "rgba(10, 25, 47, 0.85)",
-    },
+    text: { primary: "#8892b0", secondary: "#a8b2d1" },
+    background: { default: "#0a192f", paper: "rgba(10, 25, 47, 0.85)" },
     action: {
       hover: "rgba(100, 255, 218, 0.08)",
       selected: "rgba(100, 255, 218, 0.16)",
@@ -76,22 +73,22 @@ const theme = createTheme({
     caption: { fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)", color: "#8892b0" },
   },
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: "4px",
-        },
-      },
-    },
+    MuiButton: { styleOverrides: { root: { borderRadius: "4px" } } },
     MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "rgba(10, 25, 47, 0.85)",
-        },
-      },
+      styleOverrides: { root: { backgroundColor: "rgba(10, 25, 47, 0.85)" } },
     },
   },
 });
+
+// Google Consent Mode'u güncellemek için yardımcı fonksiyon (Değişiklik yok)
+const handleConsentUpdate = (accepted) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("consent", "update", {
+      analytics_storage: accepted ? "granted" : "denied",
+      ad_storage: accepted ? "granted" : "denied",
+    });
+  }
+};
 
 function App() {
   return (
@@ -206,7 +203,6 @@ function App() {
               <Route path="/llm/us" element={<LLMPage country="us" />} />
               <Route path="/llm/ca" element={<LLMPage country="ca" />} />
               <Route path="/llm/au" element={<LLMPage country="au" />} />
-              {/* Privacy Policy Rotları */}
               <Route
                 path="/privacy-policy"
                 element={<PrivacyPolicy country="default" />}
@@ -223,10 +219,66 @@ function App() {
                 path="/privacy-policy/au"
                 element={<PrivacyPolicy country="au" />}
               />
+              {/* YENİ ÇEREZ POLİTİKASI ROUTE'LARI */}
+              <Route
+                path="/cookie-policy"
+                element={<CookiePolicy country="default" />}
+              />
+              <Route
+                path="/cookie-policy/us"
+                element={<CookiePolicy country="us" />}
+              />
+              <Route
+                path="/cookie-policy/ca"
+                element={<CookiePolicy country="ca" />}
+              />
+              <Route
+                path="/cookie-policy/au"
+                element={<CookiePolicy country="au" />}
+              />
             </Routes>
             <Analytics />
           </Box>
           <Footer />
+
+          {/* ÇEREZ UYARI BİLEŞENİ (GÜNCELLENDİ) */}
+          <CookieConsent
+            location="bottom"
+            buttonText="Accept All"
+            declineButtonText="Decline"
+            cookieName="suleymanunver-portfolio-consent"
+            style={{
+              background: "#0A192F",
+              borderTop: "1px solid #64ffda",
+              fontSize: "14px",
+            }}
+            buttonStyle={{
+              color: "#0A192F",
+              background: "#64ffda",
+              fontSize: "14px",
+              fontWeight: "bold",
+              borderRadius: "4px",
+            }}
+            declineButtonStyle={{
+              background: "transparent",
+              color: "#8892b0",
+              fontSize: "14px",
+            }}
+            expires={150}
+            enableDeclineButton
+            onAccept={() => handleConsentUpdate(true)}
+            onDecline={() => handleConsentUpdate(false)}
+          >
+            This site uses cookies to improve your experience and for analytics.
+            See our{" "}
+            <a
+              href="/cookie-policy"
+              style={{ color: "#64ffda", textDecoration: "underline" }}
+            >
+              Cookie Policy
+            </a>{" "}
+            for details.
+          </CookieConsent>
         </Box>
       </ThemeProvider>
     </HelmetProvider>

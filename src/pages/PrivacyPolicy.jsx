@@ -109,20 +109,18 @@ const PrivacyPolicy = ({ country = "default" }) => {
           <ul>
             <li>
               <strong>Form Data</strong>: When you submit a contact form, we
-              collect your email address, request details, and country
-              selection. This data is stored securely in Firebase Firestore’s{" "}
-              <code>subscribers</code> collection.
+              collect your email address, request details, and other information
+              you provide. This data is stored securely in our database.
             </li>
             <li>
               <strong>Cookies and Tracking</strong>: We use cookies for
-              analytics (Google Analytics, ID: G-0PBZ7QKMFZ) and functionality
-              (reCAPTCHA). These cookies help us understand site usage and
-              protect against spam.
+              analytics and functionality (e.g., spam protection). These cookies
+              help us understand site usage and enhance security.
             </li>
             <li>
               <strong>Usage Data</strong>: We may collect information about how
               you interact with our site, such as pages visited and time spent,
-              via Vercel Analytics.
+              through analytics tools.
             </li>
           </ul>
         </Typography>
@@ -132,21 +130,18 @@ const PrivacyPolicy = ({ country = "default" }) => {
         <Typography variant="body1" paragraph>
           We use your information to:
           <ul>
-            <li>Respond to your inquiries and provide consulting services.</li>
+            <li>Respond to your inquiries and provide services.</li>
             <li>Improve our website and services through analytics.</li>
-            <li>
-              Ensure site security and prevent fraud (e.g., via reCAPTCHA).
-            </li>
+            <li>Ensure site security and prevent fraud.</li>
           </ul>
         </Typography>
         <Typography variant="h4" gutterBottom>
           Cookies and Consent
         </Typography>
         <Typography variant="body1" paragraph>
-          Our site uses a cookie consent banner (powered by Silktide Cookie
-          Consent) to obtain your permission for non-essential cookies. You can
-          accept, reject, or customize your cookie preferences. For more
-          details, see our{" "}
+          Our site uses a cookie consent banner to obtain your permission for
+          non-essential cookies. You can accept, reject, or customize your
+          cookie preferences. For more details, see our{" "}
           <Link href="/privacy-policy" color="primary">
             Cookie Policy
           </Link>
@@ -156,35 +151,20 @@ const PrivacyPolicy = ({ country = "default" }) => {
           Data Storage and Security
         </Typography>
         <Typography variant="body1" paragraph>
-          Your data is stored in Firebase Firestore (location: nam5, United
-          States) with enterprise-grade security. We implement measures to
-          protect your information, but no online transmission is 100% secure.
+          Your data is stored securely with industry-standard measures. We
+          strive to protect your information, but no online transmission is 100%
+          secure.
         </Typography>
         <Typography variant="h4" gutterBottom>
           Your Rights
         </Typography>
         <Typography variant="body1" paragraph>
-          Depending on your location (e.g., GDPR for EU residents), you may have
-          rights to access, correct, or delete your data. To exercise these
-          rights, contact us at{" "}
+          Depending on your location, you may have rights to access, correct, or
+          delete your data. To exercise these rights, contact us at{" "}
           <Link href="mailto:unver.jsx@gmail.com" color="primary">
             unver.jsx@gmail.com
           </Link>
           .
-        </Typography>
-        <Typography variant="h4" gutterBottom>
-          Third-Party Services
-        </Typography>
-        <Typography variant="body1" paragraph>
-          We use third-party services, including:
-          <ul>
-            <li>Google Analytics (analytics)</li>
-            <li>reCAPTCHA (spam protection)</li>
-            <li>Vercel (hosting and analytics)</li>
-            <li>Firebase Firestore (data storage)</li>
-          </ul>
-          These services may collect data as described in their respective
-          privacy policies.
         </Typography>
         <Typography variant="h4" gutterBottom>
           Contact Us

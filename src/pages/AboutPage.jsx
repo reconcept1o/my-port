@@ -1,16 +1,39 @@
 import React from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  List,
-  ListItem,
-  Stack,
-} from '@mui/material';
+import { Box, Container, Typography, List, ListItem, Stack } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
 import AnimatedPage from '../components/AnimatedPage';
 import profilePhoto from '../assets/1.jpg';
 
-const AboutPage = () => {
+const AboutPage = ({ country = 'default' }) => {
+  const countryContent = {
+    us: {
+      title: 'About Suleyman Unver - Full Stack Developer in the USA',
+      description:
+        'Learn about Suleyman Unver, a Full Stack Developer delivering scalable web and mobile solutions for USA-based businesses using MERN stack and PostgreSQL.',
+      keywords: 'about full stack developer USA, software developer USA, MERN stack USA',
+    },
+    ca: {
+      title: 'About Suleyman Unver - Software Developer in Canada',
+      description:
+        'Discover Suleyman Unver, a software developer specializing in fintech and health tech solutions for Canadian enterprises.',
+      keywords: 'about software developer Canada, MERN stack Toronto, full stack developer Canada',
+    },
+    au: {
+      title: 'About Suleyman Unver - Web Developer in Australia',
+      description:
+        'Meet Suleyman Unver, a web developer crafting innovative solutions for Australian startups and businesses with expertise in MERN stack and PostgreSQL.',
+      keywords: 'about web developer Australia, software developer Sydney, MERN stack Australia',
+    },
+    default: {
+      title: 'About Suleyman Unver - Full Stack Developer',
+      description:
+        'Learn about Suleyman Unver, a passionate Full Stack Developer specializing in MERN stack, PostgreSQL, and AI-driven solutions for global clients.',
+      keywords: 'about full stack developer, MERN stack developer, software developer',
+    },
+  };
+
+  const { title, description, keywords } = countryContent[country];
+
   const skills = [
     'JavaScript (ES6+)',
     'TypeScript',
@@ -59,114 +82,138 @@ const AboutPage = () => {
 
   return (
     <AnimatedPage>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Suleyman Unver" />
+        <link rel="canonical" href={`https://www.reconceptx.com/about${country === 'default' ? '' : `/${country}`}`} />
+        <link rel="alternate" hreflang="en-us" href="https://www.reconceptx.com/about/us" />
+        <link rel="alternate" hreflang="en-ca" href="https://www.reconceptx.com/about/ca" />
+        <link rel="alternate" hreflang="en-au" href="https://www.reconceptx.com/about/au" />
+        <link rel="alternate" hreflang="x-default" href="https://www.reconceptx.com/about" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Suleyman Unver',
+            jobTitle: 'Full Stack Developer',
+            url: `https://www.reconceptx.com/about${country === 'default' ? '' : `/${country}`}`,
+            description: description,
+            sameAs: [
+              'https://www.linkedin.com/in/s%C3%BCleyman-%C3%BCnver-9b3950245',
+              'https://github.com/reconcept1o',
+            ],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: country === 'us' ? 'US' : country === 'ca' ? 'CA' : country === 'au' ? 'AU' : 'Global',
+            },
+          })}
+        </script>
+      </Helmet>
       <Container
         sx={{
           py: { xs: 2, sm: 4 },
-          textAlign: "center",
-          bgcolor: "#0A192F", // Arka plan beyaz
+          textAlign: 'center',
+          bgcolor: '#0A192F',
         }}
       >
-        {/* About Me başlığı ve resim yan yana */}
         <Stack
-          direction={{ xs: "column", sm: "row" }}
+          direction={{ xs: 'row', sm: 'column' }}
           spacing={2}
           sx={{
-            alignItems: "center",
-            justifyContent: "center",
+            alignItems: 'center',
+            justifyContent: 'center',
             mb: 3,
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              color: "white", // Siyah yazı
-              fontWeight: 700, // Kalın font
-              position: "relative",
-              "&:after": {
+              color: 'white',
+              fontWeight: 700,
+              position: 'relative',
+              '&:after': {
                 content: '""',
-                display: "block",
-                width: { xs: "80%", sm: "clamp(100px, 20vw, 200px)" },
-                height: "1px",
-                bgcolor: "white", // Çizgi siyah
-                mx: "auto",
+                display: 'block',
+                width: { xs: '80%', sm: 'clamp(100px, 20vw, 200px)' },
+                height: '1px',
+                bgcolor: 'white',
+                mx: 'auto',
                 mt: 1,
               },
             }}
           >
-            01. About Me
+             About Me
           </Typography>
           <Box
             component="img"
             src={profilePhoto}
             alt="Süleyman Ünver"
             sx={{
-              width: { xs: "100px", sm: "120px" },
-              height: { xs: "100px", sm: "120px" },
-              borderRadius: "50%", // Yuvarlak resim
-              boxShadow: "0 10px 30px -15px rgba(0, 0, 0, 0.7)",
-              objectFit: "cover",
+              width: { xs: '100px', sm: '120px' },
+              height: { xs: '100px', sm: '120px' },
+              borderRadius: '50%',
+              boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.7)',
+              objectFit: 'cover',
             }}
           />
         </Stack>
 
-        {/* Metin ve beceriler */}
         <Typography
           sx={{
             mb: 2,
-            color: "white", // Siyah yazı
-            fontWeight: 700, // Kalın font
-            maxWidth: "90%",
-            mx: "auto",
+            color: 'white',
+            fontWeight: 700,
+            maxWidth: '90%',
+            mx: 'auto',
           }}
         >
-          Hello! I'm Süleyman Ünver, a passionate Full Stack Developer with a
-          love for crafting innovative web solutions. My journey began with
-          frontend development using React, evolving into full-stack expertise
-          with the MERN stack and PostgreSQL. At Sanatkardan.com, I lead
-          end-to-end projects, from architecting scalable systems to integrating
-          cutting-edge technologies like Large Language Models (LLMs) for
-          advanced warehouse management solutions.
+          Hello! I'm Süleyman Ünver, a passionate Full Stack Developer with a love for
+          crafting innovative web solutions. My journey began with frontend
+          development using React, evolving into full-stack expertise with the MERN
+          stack and PostgreSQL. At Sanatkardan.com, I lead end-to-end projects, from
+          architecting scalable systems to integrating cutting-edge technologies like
+          Large Language Models (LLMs) for advanced warehouse management solutions.
         </Typography>
         <Typography
           sx={{
             mb: 2,
-            color: "white", // Siyah yazı
-            fontWeight: 700, // Kalın font
-            maxWidth: "90%",
-            mx: "auto",
+            color: 'white',
+            fontWeight: 500,
+            maxWidth: '90%',
+            mx: 'auto',
           }}
         >
-          My mission is to create seamless, high-performance applications that
-          solve real-world problems. I thrive on continuous learning, staying
-          ahead of industry trends, and contributing to the tech community
-          through knowledge sharing. Whether it's optimizing APIs, designing
-          intuitive UIs, or exploring AI-driven innovations, I'm driven to make
-          a global impact in software development.
+          My mission is to create seamless, high-performance applications that solve
+          real-world problems. I thrive on continuous learning, staying ahead of
+          industry trends, and contributing to the tech community through knowledge
+          sharing. Whether it's optimizing APIs, designing intuitive UIs, or exploring
+          AI-driven innovations, I'm driven to make a global impact in software
+          development.
         </Typography>
         <List
           sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
             gap: 1,
-            justifyItems: { xs: "center", sm: "center" },
-            maxWidth: "90%",
-            mx: "auto",
+            justifyItems: { xs: 'center', sm: 'center' },
+            maxWidth: '90%',
+            mx: 'auto',
           }}
         >
           {skills.map((skill) => (
             <ListItem
               key={skill}
               sx={{
-                fontFamily: "monospace",
-                fontSize: "clamp(0.75rem, 2vw, 0.875rem)",
-                color: "white", // Siyah yazı
-                fontWeight: 700, // Kalın font
+                fontFamily: 'monospace',
+                fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
+                color: 'white',
+                fontWeight: 700,
               }}
             >
-              <Box
-                component="span"
-                sx={{ color: "white", mr: 1, fontWeight: 700 }}
-              >
+              <Box component="span" sx={{ color: 'white', mr: 1, fontWeight: 700 }}>
                 ▹
               </Box>
               {skill}
@@ -174,23 +221,22 @@ const AboutPage = () => {
           ))}
         </List>
 
-        {/* Deneyimler */}
         <Typography
           variant="h2"
           sx={{
             mt: 4,
             mb: 3,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white", // Siyah yazı
-            fontWeight: 700, // Kalın font
-            "&:after": {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+            fontWeight: 700,
+            '&:after': {
               content: '""',
-              display: "block",
-              width: { xs: "80%", sm: "clamp(100px, 20vw, 200px)" },
-              height: "1px",
-              bgcolor: "white", // Çizgi siyah
+              display: 'block',
+              width: { xs: '80%', sm: 'clamp(100px, 20vw, 200px)' },
+              height: '1px',
+              bgcolor: 'white',
               ml: { xs: 0, sm: 2 },
               mt: { xs: 1, sm: 0 },
             },
@@ -199,34 +245,28 @@ const AboutPage = () => {
           Experience
         </Typography>
         {experiences.map((exp) => (
-          <Box
-            key={exp.company || exp.role}
-            sx={{ mb: 3, textAlign: "center" }}
-          >
+          <Box key={exp.company || exp.role} sx={{ mb: 3, textAlign: 'center' }}>
             <Typography
               variant="h6"
               sx={{
                 mb: 0.5,
-                color: "white", // Siyah yazı
-                fontWeight: 700, // Kalın font
+                color: 'white',
+                fontWeight: 700,
               }}
             >
-              {exp.role}{" "}
+              {exp.role}{' '}
               {exp.company && (
-                <Box
-                  component="span"
-                  sx={{ color: "white", fontWeight: 700 }}
-                >
+                <Box component="span" sx={{ color: 'white', fontWeight: 700 }}>
                   @ {exp.company}
                 </Box>
               )}
             </Typography>
             <Typography
               sx={{
-                fontFamily: "monospace",
-                fontSize: "clamp(0.625rem, 2vw, 0.75rem)",
-                color: "white", // Siyah yazı
-                fontWeight: 700, // Kalın font
+                fontFamily: 'monospace',
+                fontSize: 'clamp(0.625rem, 2vw, 0.75rem)',
+                color: 'white',
+                fontWeight: 700,
                 mb: 1,
               }}
             >
@@ -234,10 +274,10 @@ const AboutPage = () => {
             </Typography>
             <Typography
               sx={{
-                maxWidth: "90%",
-                mx: "auto",
-                color: "white", // Siyah yazı
-                fontWeight: 700, // Kalın font
+                maxWidth: '90%',
+                mx: 'auto',
+                color: 'white',
+                fontWeight: 700,
               }}
             >
               {exp.desc}

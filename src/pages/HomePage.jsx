@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  TextField,
-  Button,
-  Alert,
-} from "@mui/material";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { TypeAnimation } from "react-type-animation";
 import { Helmet } from "react-helmet-async";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -74,20 +67,18 @@ const HomePage = ({ country = "default" }) => {
     }
 
     try {
-      // Firestore’a e-posta ve talebi kaydet
       await addDoc(collection(db, "subscribers"), {
         email,
         request,
         country,
         submittedAt: new Date(),
       });
-
       setMessage("Thank you! Your request has been submitted successfully.");
       setEmail("");
       setRequest("");
       setRecaptchaToken(null);
     } catch (err) {
-      console.error("Error:", err);
+      console.error("Firestore Error:", err);
       setError("An error occurred. Please try again.");
     }
     setLoading(false);
@@ -156,155 +147,193 @@ const HomePage = ({ country = "default" }) => {
         </script>
       </Helmet>
       <Container
-        sx={{
-          pt: { xs: 8, sm: 10 },
-          pb: 4,
-          minHeight: { xs: "70vh", sm: "80vh" },
+        fluid
+        style={{
+          backgroundColor: "#0A192F",
+          paddingTop: "5rem",
+          paddingBottom: "2rem",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          px: { xs: 1, sm: 2 },
-          bgcolor: "#0A192F",
         }}
       >
-        <Typography
-          variant="h1"
-          sx={{
-            color: "white",
-            fontFamily: "monospace",
-            fontWeight: "bold",
-            mb: 2,
-            fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
-          }}
-        >
-          Hi, My name is
-        </Typography>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            mb: 1,
-            fontSize: "clamp(3rem, 8vw, 5rem)",
-          }}
-        >
-          Suleyman Unver.
-        </Typography>
-        <Typography
-          variant="h3"
-          sx={{
-            color: "white",
-            fontWeight: "bold",
-            mb: 2,
-            fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
-          }}
-        >
-          <TypeAnimation
-            sequence={[
-              "I craft immersive digital experiences.",
-              2000,
-              "I am a Full Stack Developer.",
-              2000,
-              "I am passionate about APIs and LLMs.",
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-          />
-        </Typography>
-        <Typography
-          sx={{
-            maxWidth: "90%",
-            fontSize: "clamp(0.875rem, 2vw, 1rem)",
-            color: "white",
-            fontWeight: "bold",
-            lineHeight: 1.6,
-            mb: 4,
-          }}
-        >
-          I'm a seasoned Full Stack Developer specializing in the MERN stack and
-          PostgreSQL, with a knack for building robust, scalable web and mobile
-          applications. My passion lies in creating seamless user experiences,
-          optimizing performance, and leveraging cutting-edge technologies like
-          APIs and Large Language Models to solve complex challenges. Let's
-          build the future of the web together!
-        </Typography>
-        {/* E-posta ve Talep Formu */}
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{
-            maxWidth: "600px",
-            width: "100%",
-            bgcolor: "rgba(10, 25, 47, 0.85)",
-            p: 3,
-            borderRadius: 4,
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-          }}
-        >
-          <Typography
-            variant="h5"
-            sx={{
-              color: "#64ffda",
-              fontFamily: "monospace",
-              mb: 2,
-              fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
-            }}
-          >
-            Get Free Consulting!
-          </Typography>
-          <TextField
-            fullWidth
-            label="Your Email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            sx={{ mb: 2, bgcolor: "white", borderRadius: 4 }}
-          />
-          <TextField
-            fullWidth
-            label="Your Request (e.g., Mobile App, Web App, LLM)"
-            multiline
-            rows={4}
-            value={request}
-            onChange={(e) => setRequest(e.target.value)}
-            required
-            sx={{ mb: 2, bgcolor: "white", borderRadius: 4 }}
-          />
-          <ReCAPTCHA
-            sitekey="6LcWf20rAAAAAEPn2DQS30durxlBMb4Jz5yf_tDI"
-            onChange={(token) => setRecaptchaToken(token)}
-            sx={{ mb: 2 }}
-          />
-          {message && (
-            <Alert severity="success" sx={{ mb: 2 }}>
-              {message}
-            </Alert>
-          )}
-          {error && (
-            <Alert severity="error" sx={{ mb: 2 }}>
-              {error}
-            </Alert>
-          )}
-          <Button
-            type="submit"
-            variant="contained"
-            disabled={loading || !recaptchaToken}
-            sx={{
-              bgcolor: "#64ffda",
-              color: "#0a192f",
-              fontFamily: "monospace",
-              fontSize: "clamp(0.9rem, 2vw, 1rem)",
-              "&:hover": { bgcolor: "#4ad0b0" },
-            }}
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </Button>
-        </Box>
+        <Row style={{ width: "100%" }}>
+          <Col>
+            <h1
+              style={{
+                color: "white",
+                fontFamily: "monospace",
+                fontWeight: "bold",
+                marginBottom: "1.5rem",
+                fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
+              }}
+            >
+              Hi, My name is
+            </h1>
+            <h2
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+                fontSize: "clamp(3rem, 8vw, 5rem)",
+              }}
+            >
+              Suleyman Unver.
+            </h2>
+            <h3
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                marginBottom: "1.5rem",
+                fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+              }}
+            >
+              <TypeAnimation
+                sequence={[
+                  "I craft immersive digital experiences.",
+                  2000,
+                  "I am a Full Stack Developer.",
+                  2000,
+                  "I am passionate about APIs and LLMs.",
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </h3>
+            <p
+              style={{
+                color: "white",
+                maxWidth: "90%",
+                margin: "0 auto 2rem",
+                fontSize: "clamp(0.875rem, 2vw, 1rem)",
+                fontWeight: "bold",
+                lineHeight: 1.6,
+              }}
+            >
+              I'm a seasoned Full Stack Developer specializing in the MERN stack
+              and PostgreSQL, with a knack for building robust, scalable web and
+              mobile applications. My passion lies in creating seamless user
+              experiences, optimizing performance, and leveraging cutting-edge
+              technologies like APIs and Large Language Models to solve complex
+              challenges. Let's build the future of the web together!
+            </p>
+            <Row style={{ justifyContent: "center" }}>
+              <Col xs={12} md={8} lg={6}>
+                <Form
+                  onSubmit={handleSubmit}
+                  style={{
+                    backgroundColor: "rgba(10, 25, 47, 0.85)",
+                    padding: "1.5rem",
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  <h4
+                    style={{
+                      color: "#64ffda",
+                      fontFamily: "monospace",
+                      marginBottom: "1rem",
+                      fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+                    }}
+                  >
+                    Get Free Consulting!
+                  </h4>
+                  <Form.Group
+                    controlId="formEmail"
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <Form.Label style={{ color: "white" }}>
+                      Your Email
+                    </Form.Label>
+                    <Form.Control
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      placeholder="Enter your email"
+                      style={{ backgroundColor: "white", borderRadius: "4px" }}
+                    />
+                  </Form.Group>
+                  <Form.Group
+                    controlId="formRequest"
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <Form.Label style={{ color: "white" }}>
+                      Your Request
+                    </Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      rows={4}
+                      value={request}
+                      onChange={(e) => setRequest(e.target.value)}
+                      required
+                      placeholder="e.g., Mobile App, Web App, LLM"
+                      style={{ backgroundColor: "white", borderRadius: "4px" }}
+                    />
+                  </Form.Group>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    <ReCAPTCHA
+                      sitekey="6LcWf20rAAAAAEPn2DQS30durxlBMb4Jz5yf_tDI"
+                      onChange={(token) => {
+                        console.log("reCAPTCHA Token:", token);
+                        setRecaptchaToken(token);
+                      }}
+                      onErrored={() => console.error("reCAPTCHA Error")}
+                      onExpired={() => {
+                        console.log("reCAPTCHA Expired");
+                        setRecaptchaToken(null);
+                      }}
+                    />
+                  </div>
+                  {message && (
+                    <Alert variant="success" style={{ marginBottom: "1rem" }}>
+                      {message}
+                    </Alert>
+                  )}
+                  {error && (
+                    <Alert variant="danger" style={{ marginBottom: "1rem" }}>
+                      {error}
+                    </Alert>
+                  )}
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    disabled={loading}
+                    style={{
+                      backgroundColor: "#64ffda",
+                      borderColor: "#64ffda",
+                      color: "#0a192f",
+                      fontFamily: "monospace",
+                      fontSize: "clamp(0.9rem, 2vw, 1rem)",
+                      width: "100%",
+                      padding: "0.5rem",
+                      transition: "background-color 0.3s",
+                    }}
+                    onMouseOver={(e) =>
+                      (e.target.style.backgroundColor = "#4ad0b0")
+                    }
+                    onMouseOut={(e) =>
+                      (e.target.style.backgroundColor = "#64ffda")
+                    }
+                  >
+                    {loading ? "Submitting..." : "Submit"}
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Container>
     </AnimatedPage>
   );

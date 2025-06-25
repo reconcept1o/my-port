@@ -28,28 +28,28 @@ const HomePage = ({ country = "default" }) => {
       description:
         "Suleyman Unver, a Full Stack Developer specializing in MERN stack and PostgreSQL, crafting scalable web and mobile applications for USA businesses.",
       keywords:
-        "full stack developer USA, MERN stack developer, web development USA, PostgreSQL developer, free project consultation",
+        "full stack developer USA, MERN stack developer, web development USA, PostgreSQL developer, free consulting",
     },
     ca: {
       title: "Suleyman Unver - Software Developer in Canada",
       description:
         "Suleyman Unver, a software developer delivering fintech and health tech solutions using MERN stack and PostgreSQL for Canadian enterprises.",
       keywords:
-        "software developer Canada, MERN stack Toronto, PostgreSQL development, mobile app developer Canada, free project consultation",
+        "software developer Canada, MERN stack Toronto, PostgreSQL development, mobile app developer Canada, free consulting",
     },
     au: {
       title: "Suleyman Unver - Web Developer in Australia",
       description:
         "Suleyman Unver, a web developer building scalable platforms for Australian startups using MERN stack and PostgreSQL expertise.",
       keywords:
-        "web developer Australia, MERN stack Sydney, scalable app development, software developer Australia, free project consultation",
+        "web developer Australia, MERN stack Sydney, scalable app development, software developer Australia, free consulting",
     },
     default: {
       title: "Suleyman Unver - Full Stack Developer",
       description:
         "I'm a seasoned Full Stack Developer specializing in the MERN stack and PostgreSQL, with a knack for building robust, scalable web and mobile applications.",
       keywords:
-        "full stack developer, MERN stack, PostgreSQL, web development, mobile app development, free project consultation",
+        "full stack developer, MERN stack, PostgreSQL, web development, mobile app development, free consulting",
     },
   };
 
@@ -241,7 +241,7 @@ const HomePage = ({ country = "default" }) => {
             width: "100%",
             bgcolor: "rgba(10, 25, 47, 0.85)",
             p: 3,
-            borderRadius: "8px",
+            borderRadius: 4,
             boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
           }}
         >
@@ -276,7 +276,7 @@ const HomePage = ({ country = "default" }) => {
             sx={{ mb: 2, bgcolor: "white", borderRadius: 4 }}
           />
           <ReCAPTCHA
-            sitekey="6LfmeG0rAAAAAA4w3gAZlR9S_gx6LUiny2j9RHGf"
+            sitekey="6LcWf20rAAAAAEPn2DQS30durxlBMb4Jz5yf_tDI"
             onChange={(token) => setRecaptchaToken(token)}
             sx={{ mb: 2 }}
           />

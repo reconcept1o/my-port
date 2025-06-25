@@ -10,20 +10,10 @@ import {
 
 const DeepDivesPage = () => {
   return (
-    <Container maxWidth="md" sx={{ py: 4, px: { xs: 2, sm: 3 } }}>
-      <Typography
-        variant="h2"
-        component="h1"
-        gutterBottom
-        sx={{
-          color: "primary.main",
-          textAlign: "center",
-          mb: { xs: 3, sm: 5 },
-          fontSize: "clamp(2rem, 6vw, 3rem)",
-        }}
-      >
-        Deep Dives
-      </Typography>
+    <Container maxWidth="md" sx={{ py: 4, px: { xs: 2, sm: 3 } 
+
+ }}>
+     
 
       <Paper
         elevation={3}

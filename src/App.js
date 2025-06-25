@@ -11,7 +11,8 @@ import DeepDivesPage from "./pages/DeepDivesPage";
 import UIUXDesignPage from "./pages/UIUXDesignPage";
 import MobileAppPage from "./pages/MobileAppPage";
 import WebAppPage from "./pages/WebAppPage";
-import LLMPage from "./pages/LLMPage"; // Yeni sayfa
+import LLMPage from "./pages/LLMPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy"; // Yeni sayfa
 import { Analytics } from "@vercel/analytics/react";
 
 // Theme tanımı
@@ -201,11 +202,27 @@ function App() {
               <Route path="/web-app/us" element={<WebAppPage country="us" />} />
               <Route path="/web-app/ca" element={<WebAppPage country="ca" />} />
               <Route path="/web-app/au" element={<WebAppPage country="au" />} />
-              <Route path="/llm" element={<LLMPage country="default" />} />{" "}
-              {/* Yeni rota */}
+              <Route path="/llm" element={<LLMPage country="default" />} />
               <Route path="/llm/us" element={<LLMPage country="us" />} />
               <Route path="/llm/ca" element={<LLMPage country="ca" />} />
               <Route path="/llm/au" element={<LLMPage country="au" />} />
+              {/* Privacy Policy Rotları */}
+              <Route
+                path="/privacy-policy"
+                element={<PrivacyPolicy country="default" />}
+              />
+              <Route
+                path="/privacy-policy/us"
+                element={<PrivacyPolicy country="us" />}
+              />
+              <Route
+                path="/privacy-policy/ca"
+                element={<PrivacyPolicy country="ca" />}
+              />
+              <Route
+                path="/privacy-policy/au"
+                element={<PrivacyPolicy country="au" />}
+              />
             </Routes>
             <Analytics />
           </Box>

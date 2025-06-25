@@ -10,7 +10,7 @@ import { collection, addDoc } from "firebase/firestore";
 const HomePage = () => {
   const [email, setEmail] = useState("");
   const [request, setRequest] = useState("");
-  const [country, setCountry] = useState(""); // Yeni state
+  const [country, setCountry] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -47,7 +47,6 @@ const HomePage = () => {
     },
   };
 
-  // country state’ine göre SEO içeriği
   const { title, description, keywords } = countryContent[country || "default"];
 
   const handleSubmit = async (e) => {
@@ -150,6 +149,14 @@ const HomePage = () => {
             },
           })}
         </script>
+        {/* Silktide Cookie Consent Script */}
+        <script
+          src="https://cdn.silktide.com/cookie-consent.min.js"
+          data-site-id="your-site-id"
+          data-consent-mode="true"
+          data-policy-url="https://www.reconceptx.com/privacy-policy"
+          async
+        ></script>
       </Helmet>
       <Container
         fluid

@@ -2,30 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./image.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="ReconceptX Developer"
-    />
-    <link rel="apple-touch-icon" href="./image.png" />
+    <meta name="theme-color" content="#0A192F" /> <!-- Tema rengi HomePage.js ile uyumlu -->
+    <meta name="description" content="Suleyman Unver - Full Stack Developer specializing in MERN stack and PostgreSQL" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> <!-- Favicon için standart yol -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
+    <title>Suleyman Unver - Full Stack Developer</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0391NT6K6"></script>
+    <!-- Google Consent Mode V2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-C0391NT6K6');
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied', // Varsayılan olarak analitik çerezleri devre dışı
+        'ad_storage': 'denied' // Reklam çerezleri devre dışı
+      });
     </script>
 
+    <!-- Google Tag Manager (Google Analytics) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PBZ7QKMFZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-0PBZ7QKMFZ');
+    </script>
+
+    <!-- Silktide Cookie Consent -->
+    <script
+      src="https://cdn.silktide.com/cookie-consent.min.js"
+      data-site-id="your-site-id"
+      data-consent-mode="true"
+      data-policy-url="https://www.reconceptx.com/privacy-policy"
+      async
+    ></script>
   </head>
   <body>
-    <noscript>ReconceptX</noscript>
+    <noscript>
+      You need to enable JavaScript to run this app. Visit reconceptx.com for more information.
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

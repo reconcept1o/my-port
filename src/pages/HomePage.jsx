@@ -183,7 +183,7 @@ const HomePage = () => {
                 fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
               }}
             >
-              Hi, My name is
+              Welcome to
             </h1>
             <h2
               style={{
@@ -193,7 +193,7 @@ const HomePage = () => {
                 fontSize: "clamp(3rem, 8vw, 5rem)",
               }}
             >
-              Suleyman Unver.
+              My Page
             </h2>
             <h3
               style={{

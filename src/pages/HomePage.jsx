@@ -193,7 +193,7 @@ const HomePage = () => {
                 fontSize: "clamp(3rem, 8vw, 5rem)",
               }}
             >
-              My Page
+              My Platform
             </h2>
             <h3
               style={{

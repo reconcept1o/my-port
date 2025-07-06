@@ -17,6 +17,8 @@ import LLMPage from "./pages/LLMPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy"; // YENİ EKLENDİ
 import { Analytics } from "@vercel/analytics/react";
+import CustomCursor from './Animation/CustomCursor'
+
 
 // Theme tanımı (Değişiklik yok)
 const theme = createTheme({
@@ -93,6 +95,7 @@ const handleConsentUpdate = (accepted) => {
 function App() {
   return (
     <HelmetProvider>
+<CustomCursor />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box

@@ -7,6 +7,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+
+/* Turuncu büyük yuvarlak */
+.cursor-circle-orange {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  background-color: orange;
+  border-radius: 50%;
+  z-index: 9998;
+  pointer-events: none;
+  transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+/* Pembe büyük yuvarlak */
+.cursor-circle-pink {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  background-color: pink;
+  border-radius: 50%;
+  z-index: 9997;
+  pointer-events: none;
+  transition: transform 0.25s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+/* Siyah büyük yuvarlak */
+.cursor-circle-black {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 9996;
+  pointer-events: none;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
